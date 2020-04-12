@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('genero_borrar', {'idgenero': genero.idgenero}) }}" onsubmit="return confirm('¿Seguro que quiere eliminar este género?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ genero.idgenero) }}">
+    <button class="btn">Borrar</button>
+</form>

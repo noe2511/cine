@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuario{% endblock %}
+
+{% block body %}
+    <h1>Usuario</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Contrasenia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.usuario }}</td>
+                <td>{{ usuario.contrasenia }}</td>
+                <td>
+                    <a href="{{ path('usuario_detalles', {'usuario': usuario.usuario}) }}">Detalles</a>
+                    <a href="{{ path('usuario_editar', {'usuario': usuario.usuario}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay usuarios almacenados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('usuario_nuevo') }}">Crear nuevo usuario</a>
+{% endblock %}

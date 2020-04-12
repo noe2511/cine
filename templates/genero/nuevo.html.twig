@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Género{% endblock %}
+
+{% block body %}
+    <h1>Crear nuevo género</h1>
+
+    {{ include('genero/_form.html.twig') }}
+
+    <a href="{{ path('genero_index') }}">Ir a listado de género</a>
+{% endblock %}

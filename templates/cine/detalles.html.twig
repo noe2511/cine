@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cine{% endblock %}
+
+{% block body %}
+    <h1>Cine</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Cif</th>
+                <td>{{ cine.cif }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cine.nombre }}</td>
+            </tr>
+            <tr>
+                <th>TipoVia</th>
+                <td>{{ cine.tipoVia }}</td>
+            </tr>
+            <tr>
+                <th>Via</th>
+                <td>{{ cine.via }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ cine.numero }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('cine_index') }}">Ir a listado de cines.</a>
+
+    <a href="{{ path('cine_editar', {'cif': cine.cif}) }}">Editar</a>
+
+    {{ include('cine/borrar.html.twig') }}
+{% endblock %}

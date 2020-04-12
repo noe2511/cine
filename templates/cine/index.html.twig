@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cine{% endblock %}
+
+{% block body %}
+    <h1>Cine</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cif</th>
+                <th>Nombre</th>
+                <th>TipoVia</th>
+                <th>Via</th>
+                <th>Numero</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cine in cines %}
+            <tr>
+                <td>{{ cine.cif }}</td>
+                <td>{{ cine.nombre }}</td>
+                <td>{{ cine.tipoVia }}</td>
+                <td>{{ cine.via }}</td>
+                <td>{{ cine.numero }}</td>
+                <td>
+                    <a href="{{ path('cine_detalles', {'cif': cine.cif}) }}">Detalles</a>
+                    <a href="{{ path('cine_editar', {'cif': cine.cif}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No hay cines alamacenados.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cine_nuevo') }}">Crear nuevo cine</a>
+{% endblock %}

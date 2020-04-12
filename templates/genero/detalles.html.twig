@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genero{% endblock %}
+
+{% block body %}
+    <h1>Genero</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idgenero</th>
+                <td>{{ genero.idgenero }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ genero.nombre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('genero_index') }}">Ir a listado de género</a>
+
+    <a href="{{ path('genero_editar', {'idgenero': genero.idgenero}) }}">Editar</a>
+
+    {{ include('genero/borrar.html.twig') }}
+{% endblock %}

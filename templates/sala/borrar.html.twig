@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('sala_borrar', {'idsala': sala.idsala}) }}" onsubmit="return confirm('¿Seguro que quiere eliminar esta sala?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ sala.idsala) }}">
+    <button class="btn">Borrar</button>
+</form>

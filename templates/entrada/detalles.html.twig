@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entrada{% endblock %}
+
+{% block body %}
+    <h1>Entrada</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>HoraInicio</th>
+                <td>{{ entrada.horaInicio ? entrada.horaInicio|date('H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('entrada_index') }}">Ir a listado de entradas.</a>
+
+    <a href="{{ path('entrada_edit', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
+
+    {{ include('entrada/borrar.html.twig') }}
+{% endblock %}

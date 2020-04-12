@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sala{% endblock %}
+
+{% block body %}
+    <h1>Sala</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id sala</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sala in salas %}
+            <tr>
+                <td>{{ sala.idsala }}</td>
+                <td>
+                    <a href="{{ path('sala_detalles', {'idsala': sala.idsala}) }}">Detalles</a>
+                    <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">No hay salas almacenadas</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sala_nueva') }}">Crear nueva sala</a>
+{% endblock %}

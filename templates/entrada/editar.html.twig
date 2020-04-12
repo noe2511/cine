@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Entrada{% endblock %}
+
+{% block body %}
+    <h1>Editar Entrada</h1>
+
+    {{ include('entrada/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a href="{{ path('entrada_index') }}">Ir a listado de entradas</a>
+
+    {{ include('entrada/borrar.html.twig') }}
+{% endblock %}

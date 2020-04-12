@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Entrada{% endblock %}
+
+{% block body %}
+    <h1>Crear nueva entrada</h1>
+
+    {{ include('entrada/_form.html.twig') }}
+
+    <a href="{{ path('entrada_index') }}">Ir a listado de entradas.</a>
+{% endblock %}

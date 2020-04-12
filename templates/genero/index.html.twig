@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Género{% endblock %}
+
+{% block body %}
+    <h1>Género index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id género</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genero in generos %}
+            <tr>
+                <td>{{ genero.idgenero }}</td>
+                <td>{{ genero.nombre }}</td>
+                <td>
+                    <a href="{{ path('genero_detalles', {'idgenero': genero.idgenero}) }}">Detalles</a>
+                    <a href="{{ path('genero_editar', {'idgenero': genero.idgenero}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay géneros almacenados.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('genero_nuevo') }}">Crear nuevo géneto</a>
+{% endblock %}

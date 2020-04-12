@@ -3,10 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+       
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+
         {% block stylesheets %}{% endblock %}
+        
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <!--CABECERA-->
+        {% embed "shared/cabecera.html.twig" %}
+
+        {% endembed %}
+
+        <div id="cuerpo">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+        
+        
+        <div id="pie">
+            {% embed "shared/pie.html.twig" %}
+            {% endembed %}
+        </div>
+        
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>
