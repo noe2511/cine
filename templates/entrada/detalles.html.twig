@@ -16,7 +16,7 @@
 
     <a href="{{ path('entrada_index') }}">Ir a listado de entradas.</a>
 
-    <a href="{{ path('entrada_edit', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
+    <a href="{{ path('entrada_editar', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
 
     {{ include('entrada/borrar.html.twig') }}
 {% endblock %}

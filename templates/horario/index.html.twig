@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horario{% endblock %}
+
+{% block body %}
+    <h1>Horario</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Horainicio</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for horario in horarios %}
+            <tr>
+                <td>{{ horario.fecha ? horario.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ horario.horainicio ? horario.horainicio|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('horario_detalles', {'fecha': horario.fecha}) }}">Detalles</a>
+                    <a href="{{ path('horario_editar', {'fecha': horario.fecha}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay horarios almacenados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('horario_nuevo') }}">Crear nuevo horario</a>
+{% endblock %}

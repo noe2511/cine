@@ -5,12 +5,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Entrada
+ * Horario
  *
- * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_Sala_has_Pelicula_Sala1_idx", columns={"Sala_idSala"}), @ORM\Index(name="fk_Sala_has_Pelicula_Pelicula1_idx", columns={"Pelicula_idPelicula"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
+ * @ORM\Table(name="horario", indexes={@ORM\Index(name="fk_Horario_sala1_idx", columns={"sala_idSala"}), @ORM\Index(name="fk_Horario_pelicula1_idx", columns={"pelicula_idPelicula"})})
  * @ORM\Entity
  */
-class Entrada
+class Horario
 {
     /**
      * @var \DateTime
@@ -24,23 +24,11 @@ class Entrada
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Hora_inicio", type="time", nullable=false)
+     * @ORM\Column(name="horaInicio", type="time", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $horaInicio;
-
-    /**
-     * @var \Asiento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Asiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Asiento_idAsiento", referencedColumnName="idAsiento")
-     * })
-     */
-    private $asientoIdasiento;
+    private $horainicio;
 
     /**
      * @var \Pelicula
@@ -49,7 +37,7 @@ class Entrada
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Pelicula")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Pelicula_idPelicula", referencedColumnName="idPelicula")
+     *   @ORM\JoinColumn(name="pelicula_idPelicula", referencedColumnName="idPelicula")
      * })
      */
     private $peliculaIdpelicula;
@@ -61,7 +49,7 @@ class Entrada
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Sala")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Sala_idSala", referencedColumnName="idSala")
+     *   @ORM\JoinColumn(name="sala_idSala", referencedColumnName="idSala")
      * })
      */
     private $salaIdsala;
@@ -71,21 +59,9 @@ class Entrada
         return $this->fecha;
     }
 
-    public function getHoraInicio(): ?\DateTimeInterface
+    public function getHorainicio(): ?\DateTimeInterface
     {
-        return $this->horaInicio;
-    }
-
-    public function getAsientoIdasiento(): ?Asiento
-    {
-        return $this->asientoIdasiento;
-    }
-
-    public function setAsientoIdasiento(?Asiento $asientoIdasiento): self
-    {
-        $this->asientoIdasiento = $asientoIdasiento;
-
-        return $this;
+        return $this->horainicio;
     }
 
     public function getPeliculaIdpelicula(): ?Pelicula

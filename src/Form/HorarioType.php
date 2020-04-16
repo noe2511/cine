@@ -2,32 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Pelicula;
+use App\Entity\Horario;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PeliculaType extends AbstractType
+class HorarioType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('director')
-            ->add('titulo')
-            ->add('fechaEstreno')
-            ->add('duracion')
-            ->add('descripcion')
-            ->add('actores')
-            ->add('imagen')
-            ->add('generoIdgenero')
+            ->add('fecha')
+            ->add('horainicio')
+            ->add('peliculaIdpelicula')
             ->add('salaIdsala')
-            ->add('trailer');
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Pelicula::class,
+            'data_class' => Horario::class,
         ]);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,29 +31,6 @@ class Sala
      */
     private $cineCif;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Pelicula", inversedBy="salaIdsala")
-     * @ORM\JoinTable(name="sala_has_pelicula1",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="Sala_idSala", referencedColumnName="idSala")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="Pelicula_idPelicula", referencedColumnName="idPelicula")
-     *   }
-     * )
-     */
-    private $peliculaIdpelicula;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->peliculaIdpelicula = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     public function getIdsala(): ?int
     {
         return $this->idsala;
@@ -73,29 +48,5 @@ class Sala
         return $this;
     }
 
-    /**
-     * @return Collection|Pelicula[]
-     */
-    public function getPeliculaIdpelicula(): Collection
-    {
-        return $this->peliculaIdpelicula;
-    }
 
-    public function addPeliculaIdpelicula(Pelicula $peliculaIdpelicula): self
-    {
-        if (!$this->peliculaIdpelicula->contains($peliculaIdpelicula)) {
-            $this->peliculaIdpelicula[] = $peliculaIdpelicula;
-        }
-
-        return $this;
-    }
-
-    public function removePeliculaIdpelicula(Pelicula $peliculaIdpelicula): self
-    {
-        if ($this->peliculaIdpelicula->contains($peliculaIdpelicula)) {
-            $this->peliculaIdpelicula->removeElement($peliculaIdpelicula);
-        }
-
-        return $this;
-    }
 }

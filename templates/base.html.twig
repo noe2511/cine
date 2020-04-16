@@ -3,14 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--webfont-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        
+        <!-- Enlace FontAwesome -->
+        <script src="https://kit.fontawesome.com/83583fb1c4.js" crossorigin="anonymous"></script>
        
-        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}" media="all">
+        <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
+        <script src="{{ asset("js/jquery.flexisel.js") }}"></script>
+        <script src="{{ asset("js/jquery.magnific-popup.js") }}"></script>
+        <script src="{{ asset("js/jquery.min.js") }}"></script>
 
         {% block stylesheets %}{% endblock %}
         
     </head>
     <body>
+        <div class="full">
+        <!--MENÚ LATERAL-->
+        <div id="menuLateral">
+        {% embed "shared/menu_lateral.html.twig" %}
 
+        {% endembed %}
+        </div>
+        <div class="main">
         <!--CABECERA-->
         {% embed "shared/cabecera.html.twig" %}
 
@@ -27,8 +48,9 @@
             {% embed "shared/pie.html.twig" %}
             {% endembed %}
         </div>
-        
-        
+    </div>
+    </div>
+    <div class="clearfix"></div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

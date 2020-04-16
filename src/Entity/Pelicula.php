@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,9 +38,9 @@ class Pelicula
     /**
      * @var int
      *
-     * @ORM\Column(name="Duración", type="integer", nullable=false)
+     * @ORM\Column(name="Duracion", type="integer", nullable=false)
      */
-    private $duraci�n;
+    private $duracion;
 
     /**
      * @var string
@@ -66,6 +64,20 @@ class Pelicula
     private $imagen;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="titulo", type="string", length=45, nullable=false)
+     */
+    private $titulo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trailer", type="string", length=250, nullable=false)
+     */
+    private $trailer;
+
+    /**
      * @var \Genero
      *
      * @ORM\ManyToOne(targetEntity="Genero")
@@ -74,21 +86,6 @@ class Pelicula
      * })
      */
     private $generoIdgenero;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Sala", mappedBy="peliculaIdpelicula")
-     */
-    private $salaIdsala;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->salaIdsala = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     public function getIdpelicula(): ?int
     {
@@ -119,14 +116,14 @@ class Pelicula
         return $this;
     }
 
-    public function getDuraci�n(): ?int
+    public function getDuracion(): ?int
     {
-        return $this->duraci�n;
+        return $this->duracion;
     }
 
-    public function setDuraci�n(int $duraci�n): self
+    public function setDuracion(int $duracion): self
     {
-        $this->duraci�n = $duraci�n;
+        $this->duracion = $duracion;
 
         return $this;
     }
@@ -167,6 +164,30 @@ class Pelicula
         return $this;
     }
 
+    public function getTitulo(): ?string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): self
+    {
+        $this->titulo = $titulo;
+
+        return $this;
+    }
+
+    public function getTrailer(): ?string
+    {
+        return $this->trailer;
+    }
+
+    public function setTrailer(string $trailer): self
+    {
+        $this->trailer = $trailer;
+
+        return $this;
+    }
+
     public function getGeneroIdgenero(): ?Genero
     {
         return $this->generoIdgenero;
@@ -179,31 +200,5 @@ class Pelicula
         return $this;
     }
 
-    /**
-     * @return Collection|Sala[]
-     */
-    public function getSalaIdsala(): Collection
-    {
-        return $this->salaIdsala;
-    }
 
-    public function addSalaIdsala(Sala $salaIdsala): self
-    {
-        if (!$this->salaIdsala->contains($salaIdsala)) {
-            $this->salaIdsala[] = $salaIdsala;
-            $salaIdsala->addPeliculaIdpelicula($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSalaIdsala(Sala $salaIdsala): self
-    {
-        if ($this->salaIdsala->contains($salaIdsala)) {
-            $this->salaIdsala->removeElement($salaIdsala);
-            $salaIdsala->removePeliculaIdpelicula($this);
-        }
-
-        return $this;
-    }
 }

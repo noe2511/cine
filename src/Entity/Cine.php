@@ -101,4 +101,6 @@ class Cine
 
         return $this;
     }
+
+
 }

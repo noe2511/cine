@@ -34,7 +34,7 @@ class Usuario
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Rol", inversedBy="usuarioUsuario")
-     * @ORM\JoinTable(name="rol_has_usuario",
+     * @ORM\JoinTable(name="usuario_has_rol",
      *   joinColumns={
      *     @ORM\JoinColumn(name="usuario_usuario", referencedColumnName="usuario")
      *   },
@@ -95,4 +95,5 @@ class Usuario
 
         return $this;
     }
+
 }

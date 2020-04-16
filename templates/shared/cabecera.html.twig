@@ -1,23 +1,17 @@
-<header id="header" >
-
-    <div id="header">
-        <div class="row-1">
-            <div class="fleft"><a href="index.html">Cinema <span>World</span></a></div>
-            <ul>
-                <li><a href="index.html"><img src="imagenes/icon1-act.gif" alt="" /></a></li>
-                <li><a href="contact-us.html"><img src="imagenes/icon2.gif" alt="" /></a></li>
-                <li><a href="sitemap.html"><img src="imagenes/icon3.gif" alt="" /></a></li>
-            </ul>
-        </div>
-        <div class="row-2">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about-us.html">About</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="contact-us.html">Contacts</a></li>
-                <li class="last"><a href="sitemap.html">Sitemap</a></li>
-            </ul>
+<header>
+    <div class="header">
+        <div class="top-header">
+            <div class="logo">
+                <a href=""><img src="{{asset('imagenes/logo')}}" alt="logo" /></a>
+                <p>Teatro del cine</p>
+            </div>
+            <div class="search">
+                <form>
+                    <input type="text" value="Buscar.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
+                    <input type="submit" value="">
+                </form>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
-
 </header>
