@@ -13,15 +13,15 @@ class PeliculaType extends AbstractType
     {
         $builder
             ->add('director')
-            ->add('titulo')
             ->add('fechaEstreno')
             ->add('duracion')
             ->add('descripcion')
             ->add('actores')
             ->add('imagen')
+            ->add('titulo')
+            ->add('trailer')
             ->add('generoIdgenero')
-            ->add('salaIdsala')
-            ->add('trailer');
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

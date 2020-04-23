@@ -1,0 +1,134 @@
+#contenedor
+{
+    width:100%;
+    height: 390px;
+}
+
+#entrada{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+div h3
+{
+    color:white;
+}
+
+#genero
+{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+#sala
+{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+#usuario
+{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+#pelicula
+{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+#horario
+{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+#aforo{
+    border: 1px solid #dfb636;
+    border-radius: 20px ;
+    background-color:#dfb636;
+    width: 175px;
+    height: 175px;
+    text-align:center;
+    float:left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 8;
+}
+
+.footer
+{
+    margin-top: 80px;
+}
+
+@media (max-width: 1290px)
+{
+    #contenedor
+    {
+        height: 560px;
+    }
+}
+
+@media (max-width: 676px)
+{
+    #contenedor
+    {
+        height: 770px;
+    }
+}

@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Sala
  *
- * @ORM\Table(name="sala", indexes={@ORM\Index(name="fk_Sala_Cine_idx", columns={"Cine_CIF"})})
+ * @ORM\Table(name="sala", indexes={@ORM\Index(name="fk_sala_aforo1_idx", columns={"aforo_tamanio"})})
  * @ORM\Entity
  */
 class Sala
@@ -22,31 +24,83 @@ class Sala
     private $idsala;
 
     /**
-     * @var \Cine
+     * @var \Aforo
      *
-     * @ORM\ManyToOne(targetEntity="Cine")
+     * @ORM\ManyToOne(targetEntity="Aforo")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Cine_CIF", referencedColumnName="CIF")
+     *   @ORM\JoinColumn(name="aforo_tamanio", referencedColumnName="tamanio")
      * })
      */
-    private $cineCif;
+    private $aforoTamanio;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Pelicula", inversedBy="salaIdsala")
+     * @ORM\JoinTable(name="sala_has_pelicula",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="sala_idSala", referencedColumnName="idSala")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="pelicula_idPelicula", referencedColumnName="idPelicula")
+     *   }
+     * )
+     */
+    private $peliculaIdpelicula;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->peliculaIdpelicula = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     public function getIdsala(): ?int
     {
         return $this->idsala;
     }
 
-    public function getCineCif(): ?Cine
+    public function getAforoTamanio()
     {
-        return $this->cineCif;
+        return $this->aforoTamanio;
     }
 
-    public function setCineCif(?Cine $cineCif): self
+    public function setAforoTamanio(?Aforo $aforoTamanio): self
     {
-        $this->cineCif = $cineCif;
+        $this->aforoTamanio = $aforoTamanio;
 
         return $this;
     }
 
+    /**
+     * @return Collection|Pelicula[]
+     */
+    public function getPeliculaIdpelicula(): Collection
+    {
+        return $this->peliculaIdpelicula;
+    }
 
+    public function addPeliculaIdpelicula(Pelicula $peliculaIdpelicula): self
+    {
+        if (!$this->peliculaIdpelicula->contains($peliculaIdpelicula)) {
+            $this->peliculaIdpelicula[] = $peliculaIdpelicula;
+        }
+
+        return $this;
+    }
+
+    public function removePeliculaIdpelicula(Pelicula $peliculaIdpelicula): self
+    {
+        if ($this->peliculaIdpelicula->contains($peliculaIdpelicula)) {
+            $this->peliculaIdpelicula->removeElement($peliculaIdpelicula);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->idsala;
+    }
 }

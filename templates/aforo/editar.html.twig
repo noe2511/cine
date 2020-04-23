@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Aforo{% endblock %}
+
+{% block body %}
+    <h1>Editar Aforo</h1>
+
+    {{ include('aforo/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a href="{{ path('aforo_index') }}">Ir a listado de aforos</a>
+
+    {{ include('aforo/borrar.html.twig') }}
+{% endblock %}

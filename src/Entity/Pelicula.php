@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -86,6 +88,21 @@ class Pelicula
      * })
      */
     private $generoIdgenero;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Sala", mappedBy="peliculaIdpelicula")
+     */
+    private $salaIdsala;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->salaIdsala = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     public function getIdpelicula(): ?int
     {
@@ -188,7 +205,7 @@ class Pelicula
         return $this;
     }
 
-    public function getGeneroIdgenero(): ?Genero
+    public function getGeneroIdgenero()
     {
         return $this->generoIdgenero;
     }
@@ -200,5 +217,36 @@ class Pelicula
         return $this;
     }
 
+    /**
+     * @return Collection|Sala[]
+     */
+    public function getSalaIdsala(): Collection
+    {
+        return $this->salaIdsala;
+    }
 
+    public function addSalaIdsala(Sala $salaIdsala): self
+    {
+        if (!$this->salaIdsala->contains($salaIdsala)) {
+            $this->salaIdsala[] = $salaIdsala;
+            $salaIdsala->addPeliculaIdpelicula($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSalaIdsala(Sala $salaIdsala): self
+    {
+        if ($this->salaIdsala->contains($salaIdsala)) {
+            $this->salaIdsala->removeElement($salaIdsala);
+            $salaIdsala->removePeliculaIdpelicula($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titulo;
+    }
 }

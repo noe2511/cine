@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Entrada
  *
- * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_Sala_has_Pelicula_Sala1_idx", columns={"Sala_idSala"}), @ORM\Index(name="fk_Sala_has_Pelicula_Pelicula1_idx", columns={"Pelicula_idPelicula"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
+ * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_Sala_has_Pelicula_Sala1_idx", columns={"Sala_idSala"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"}), @ORM\Index(name="fk_Sala_has_Pelicula_Pelicula1_idx", columns={"Pelicula_idPelicula"})})
  * @ORM\Entity
  */
 class Entrada
@@ -76,7 +76,7 @@ class Entrada
         return $this->horaInicio;
     }
 
-    public function getAsientoIdasiento(): ?Asiento
+    public function getAsientoIdasiento()
     {
         return $this->asientoIdasiento;
     }
@@ -88,7 +88,7 @@ class Entrada
         return $this;
     }
 
-    public function getPeliculaIdpelicula(): ?Pelicula
+    public function getPeliculaIdpelicula()
     {
         return $this->peliculaIdpelicula;
     }
@@ -100,7 +100,7 @@ class Entrada
         return $this;
     }
 
-    public function getSalaIdsala(): ?Sala
+    public function getSalaIdsala()
     {
         return $this->salaIdsala;
     }
@@ -112,5 +112,8 @@ class Entrada
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->fecha;
+    }
 }

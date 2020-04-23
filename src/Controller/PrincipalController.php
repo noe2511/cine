@@ -36,4 +36,13 @@ class PrincipalController extends AbstractController
             'peliculas' => $peliculas
         ]);
     }
+
+    /** @Route("/mantenimiento", name="mantenimiento")
+     *
+     * @return void
+     */
+    public function Mantenimiento()
+    {
+        return $this->render("mantenimiento/vista.html.twig");
+    }
 }

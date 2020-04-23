@@ -304,6 +304,38 @@ i.contact1 {
 .menu ul li a.active div.cnt i.contact1{
 	display:block;
 }
+
+i.mantenimiento {
+	width:60px;
+	height:60px;
+	background: url('../imagenes/mantenimiento.png') no-repeat;
+	background-size: 42px;
+	background-position:center;
+	display:block;
+}
+i.mantenimiento1 {
+	width:60px;
+	height:60px;
+	background: url('../imagenes/mantenimiento1.png') no-repeat;
+	background-size: 38px;
+	background-position:center;
+	display:none;
+}
+
+
+.menu ul li a:hover div.mant i.mantenimiento{
+	display:none;
+}
+.menu ul li a:hover div.mant i.mantenimiento1{
+	display:block;
+}
+.menu ul li a.active div.mant i.mantenimiento{
+	display:none;
+}
+.menu ul li a.active div.mant i.mantenimiento1{
+	display:block;
+}
+
 .logo{
 	float: left;
 	width: 48%;

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/pelicula")
+ * @Route("/mantenimiento/pelicula")
  */
 class PeliculaController extends AbstractController
 {

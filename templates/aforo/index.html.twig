@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aforo{% endblock %}
+
+{% block body %}
+    <h1>Aforo</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tamaño</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aforo in aforos %}
+            <tr>
+                <td>{{ aforo.tamanio }}</td>
+                <td>
+                    <a href="{{ path('aforo_detalles', {'tamanio': aforo.tamanio}) }}">Detalles</a>
+                    <a href="{{ path('aforo_editar', {'tamanio': aforo.tamanio}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">No hay número de aforos almacenados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('aforo_nuevo') }}">Crear nuevo aforo</a>
+{% endblock %}

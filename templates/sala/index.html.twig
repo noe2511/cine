@@ -3,6 +3,8 @@
 {% block title %}Sala{% endblock %}
 
 {% block body %}
+<div id="conte">
+    <link href="{{ asset("css/listados.css") }}" rel="stylesheet">
     <h1>Sala</h1>
 
     <table class="table">
@@ -17,8 +19,8 @@
             <tr>
                 <td>{{ sala.idsala }}</td>
                 <td>
-                    <a href="{{ path('sala_detalles', {'idsala': sala.idsala}) }}">Detalles</a>
-                    <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }}">Editar</a>
+                    <a href="{{ path('sala_detalles', {'idsala': sala.idsala}) }}" class="btn">Detalles</a>
+                    <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }}" class="btn">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -29,5 +31,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sala_nueva') }}">Crear nueva sala</a>
+    <a href="{{ path('sala_nueva') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nueva sala</a>
+    <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>
+</div>
 {% endblock %}

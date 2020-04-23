@@ -12,15 +12,11 @@
                 <td>{{ pelicula.idpelicula }}</td>
             </tr>
             <tr>
-                <th>Título</th>
-                <td>{{ pelicula.titulo }}</td>
-            </tr>
-            <tr>
                 <th>Director</th>
                 <td>{{ pelicula.director }}</td>
             </tr>
             <tr>
-                <th>FechaEstreno</th>
+                <th>Fecha Estreno</th>
                 <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
@@ -28,7 +24,7 @@
                 <td>{{ pelicula.duracion }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ pelicula.descripcion }}</td>
             </tr>
             <tr>
@@ -40,13 +36,17 @@
                 <td>{{ pelicula.imagen }}</td>
             </tr>
             <tr>
-                <th>Url trailer</th>
+                <th>Título</th>
+                <td>{{ pelicula.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Trailer</th>
                 <td>{{ pelicula.trailer }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('pelicula_index') }}">Ir a listado de películas</a>
+    <a href="{{ path('pelicula_index') }}">Ir a listado de películas.</a>
 
     <a href="{{ path('pelicula_editar', {'idpelicula': pelicula.idpelicula}) }}">Editar</a>
 

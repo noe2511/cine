@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block title %}Mantenimiento{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset("css/mantenimiento.css") }}">
+    <div id="contenedor">
+        <div id="entrada">
+            <a href="{{path("entrada_index")}}"><h3>Entrada</h3></a>
+            <a href="{{path("entrada_index")}}"><img src="{{asset('imagenes/entrada.ico')}}" alt=""></a>
+        </div>
+        <div id="genero">
+            <a href="{{path("genero_index")}}"><h3>Género</h3></a>
+            <a href="{{path("genero_index")}}"><img src="{{asset('imagenes/genero.ico')}}" alt=""></a>
+        </div>
+        <div id="horario">
+            <a href="{{path("horario_index")}}"><h3>Horario</h3></a>
+            <a href="{{path("horario_index")}}"><img src="{{asset('imagenes/horario.ico')}}" alt=""></a>
+        </div>
+        <div id="pelicula">
+            <a href="{{path("pelicula_index")}}"><h3>Película</h3></a>
+            <a href="{{path("pelicula_index")}}"><img src="{{asset('imagenes/pelicula.ico')}}" alt=""></a>
+        </div>
+        <div id="sala">
+            <a href="{{path("sala_index")}}"><h3>Sala</h3></a>
+            <a href="{{path("sala_index")}}"><img src="{{asset('imagenes/sala.ico')}}" alt=""></a>
+        </div>
+        <div id="usuario">
+            <a href="{{path("usuario_index")}}"><h3>Usuario</h3></a>
+            <a href="{{path("usuario_index")}}"><img src="{{asset('imagenes/usuario.ico')}}" alt=""></a>
+        </div>
+        <div id="aforo">
+            <a href="{{path("aforo_index")}}"><h3>Aforo</h3></a>
+            <a href="{{path("aforo_index")}}"><img src="{{asset('imagenes/aforo.ico')}}" alt=""></a>
+        </div>
+    </div>
+    
+{% endblock %}

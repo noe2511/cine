@@ -74,7 +74,7 @@ class Asiento
         return $this;
     }
 
-    public function getSalaIdsala(): ?Sala
+    public function getSalaIdsala()
     {
         return $this->salaIdsala;
     }
@@ -86,5 +86,8 @@ class Asiento
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->idasiento;
+    }
 }

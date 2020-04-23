@@ -1,0 +1,47 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+}
+
+#conte
+{
+    margin-left: 20px;
+}
+
+.table
+{
+    background-color: #FAFAD2;
+}
+
+th
+{
+    color:#dfb636;
+}
+
+td
+{
+    color:grey;
+    font-weight: bold;
+}
+
+#volver
+{
+    border: solid 2px;
+    border-color:#dfb636;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:#FAFAD2;
+}
+
+#nuevo
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+}
+

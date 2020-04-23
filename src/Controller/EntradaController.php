@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/entrada")
+ * @Route("/mantenimiento/entrada")
  */
 class EntradaController extends AbstractController
 {

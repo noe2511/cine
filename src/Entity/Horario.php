@@ -64,7 +64,7 @@ class Horario
         return $this->horainicio;
     }
 
-    public function getPeliculaIdpelicula(): ?Pelicula
+    public function getPeliculaIdpelicula()
     {
         return $this->peliculaIdpelicula;
     }
@@ -76,7 +76,7 @@ class Horario
         return $this;
     }
 
-    public function getSalaIdsala(): ?Sala
+    public function getSalaIdsala()
     {
         return $this->salaIdsala;
     }
@@ -88,5 +88,8 @@ class Horario
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->fecha;
+    }
 }

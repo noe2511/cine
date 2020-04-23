@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/horario")
+ * @Route("/mantenimiento/horario")
  */
 class HorarioController extends AbstractController
 {
@@ -56,7 +56,7 @@ class HorarioController extends AbstractController
      */
     public function show(Horario $horario): Response
     {
-        return $this->render('horario/show.html.twig', [
+        return $this->render('horario/detalles.html.twig', [
             'horario' => $horario,
         ]);
     }

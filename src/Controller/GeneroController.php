@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/genero")
+ * @Route("/mantenimiento/genero")
  */
 class GeneroController extends AbstractController
 {

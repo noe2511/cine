@@ -46,4 +46,8 @@ class Genero
     }
 
 
+    public function __toString()
+    {
+        return $this->nombre;
+    }
 }

@@ -29,7 +29,7 @@ class SalaController extends AbstractController
     }
 
     /**
-     * @Route("/nueva", name="sala_nueva", methods={"GET","POST"})
+     * @Route("/new", name="sala_nueva", methods={"GET","POST"})
      */
     public function nueva(Request $request): Response
     {
@@ -86,7 +86,7 @@ class SalaController extends AbstractController
      */
     public function borrar(Request $request, Sala $sala): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$sala->getIdsala(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $sala->getIdsala(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($sala);
             $entityManager->flush();

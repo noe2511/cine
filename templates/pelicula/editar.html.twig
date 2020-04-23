@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editar Pelicula{% endblock %}
+{% block title %}Editar pelicula{% endblock %}
 
 {% block body %}
-    <h1>Editar Pelicula</h1>
+    <h1>Editar pelicula</h1>
 
     {{ include('pelicula/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href="{{ path('pelicula_index') }}">Ir a listado de películas.</a>
+    <a href="{{ path('pelicula_index') }}">Ir a listado de películas</a>
 
     {{ include('pelicula/borrar.html.twig') }}
 {% endblock %}

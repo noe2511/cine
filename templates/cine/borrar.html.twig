@@ -1,5 +1,0 @@
-<form method="post" action="{{ path('cine_borrar', {'cif': cine.cif}) }}" onsubmit="return confirm('¿Está seguro que quiere borrar este cine?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cine.cif) }}">
-    <button class="btn">Borrar</button>
-</form>

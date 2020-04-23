@@ -3,31 +3,35 @@
 {% block title %}Entrada{% endblock %}
 
 {% block body %}
-    <h1>Entrada</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>HoraInicio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entrada in entradas %}
-            <tr>
-                <td>{{ entrada.horaInicio ? entrada.horaInicio|date('H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('entrada_detalles', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Detalles</a>
-                    <a href="{{ path('entrada_editar', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">No hay entradas almacenadas</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <link href="{{ asset("css/listados.css") }}" rel="stylesheet">
+    <div id="conte">
+        <h1>Entrada</h1>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Hora Inicio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entrada in entradas %}
+                <tr>
+                    <td>{{ entrada.horaInicio ? entrada.horaInicio|date('H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('entrada_detalles', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Detalles</a>
+                        <a href="{{ path('entrada_editar', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">No hay entradas almacenadas</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('entrada_new') }}">Crear nueva entrada</a>
+        <a href="{{ path('entrada_nueva') }}">Crear nueva entrada</a>
+    </div>
 {% endblock %}
