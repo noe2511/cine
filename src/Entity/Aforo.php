@@ -15,19 +15,35 @@ class Aforo
     /**
      * @var int
      *
-     * @ORM\Column(name="tamanio", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="tamanio", type="integer", nullable=false)
+     */
     private $tamanio;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getTamanio(): ?int
     {
         return $this->tamanio;
     }
 
-    public function __toString()
+    public function setTamanio(int $tamanio): self
     {
-        return $this->tamanio;
+        $this->tamanio = $tamanio;
+
+        return $this;
     }
+
+
 }

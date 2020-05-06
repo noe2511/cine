@@ -1,5 +1,0 @@
-<form method="post" action="{{ path('aforo_borrar', {'tamanio': aforo.tamanio}) }}" onsubmit="return confirm('¿Está seguro que quiere eliminar este aforo?');">
-    <input type="hidden" name="_method" value="BORRAR">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ aforo.tamanio) }}">
-    <button class="btn">Borrar</button>
-</form>

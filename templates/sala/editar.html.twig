@@ -3,11 +3,15 @@
 {% block title %}Editar Sala{% endblock %}
 
 {% block body %}
+<div id="contenedor">
+    <link href="{{ asset("css/mantenimiento/nuevo.css") }}" rel="stylesheet">
     <h1>Editar Sala</h1>
+    
+        {{ include('sala/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    <div id="botones">
+        <a href="{{ path('sala_index') }}" class="btn">Ir a listado de salas.</a>
 
-    {{ include('sala/_form.html.twig', {'button_label': 'Actualizar'}) }}
-
-    <a href="{{ path('sala_index') }}">Ir a listado de salas.</a>
-
-    {{ include('sala/borrar.html.twig') }}
+        {{ include('sala/borrar.html.twig') }}
+    </div>
+</div>
 {% endblock %}

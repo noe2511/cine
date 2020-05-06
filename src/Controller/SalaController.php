@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Asiento;
 use App\Entity\Sala;
 use App\Form\SalaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/sala")
+ * @Route("/mantenimiento/sala")
  */
 class SalaController extends AbstractController
 {
@@ -29,7 +30,7 @@ class SalaController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="sala_nueva", methods={"GET","POST"})
+     * @Route("/nueva", name="sala_nueva", methods={"GET","POST"})
      */
     public function nueva(Request $request): Response
     {
@@ -41,6 +42,17 @@ class SalaController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($sala);
             $entityManager->flush();
+
+            for ($i = 0; $i < $sala->getAforo(); $i++) {
+                $asiento = new Asiento();
+                $asiento->setTipo("normal");
+                $asiento->setEstado("libre");
+                $asiento->setSalaIdsala($sala);
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($asiento);
+                $entityManager->flush();
+            }
 
             return $this->redirectToRoute('sala_index');
         }

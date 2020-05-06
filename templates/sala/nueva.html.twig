@@ -3,9 +3,12 @@
 {% block title %}Nueva Sala{% endblock %}
 
 {% block body %}
-    <h1>Crear nueva Sala</h1>
-
+<div id="contenedor">
+    <link href="{{ asset("css/mantenimiento/nuevo.css") }}" rel="stylesheet">
+    <h1>Crear nueva sala</h1>
+    
     {{ include('sala/_form.html.twig') }}
 
-    <a href="{{ path('sala_index') }}">Ir a listado de salas</a>
+    <a href="{{ path('sala_index') }}" class="btn">Ir a listado de salas</a>
+</div>
 {% endblock %}

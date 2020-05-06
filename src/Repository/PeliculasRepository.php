@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Peliculas;
+use App\Entity\Pelicula;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -16,7 +16,7 @@ class PeliculasRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Peliculas::class);
+        parent::__construct($registry, Pelicula::class);
     }
 
     // /**

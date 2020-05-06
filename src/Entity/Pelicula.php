@@ -205,7 +205,7 @@ class Pelicula
         return $this;
     }
 
-    public function getGeneroIdgenero()
+    public function getGeneroIdgenero(): ?Genero
     {
         return $this->generoIdgenero;
     }
@@ -245,8 +245,4 @@ class Pelicula
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->titulo;
-    }
 }

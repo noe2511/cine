@@ -12,9 +12,7 @@ class SalaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('aforoTamanio')
-            ->add('peliculaIdpelicula')
-        ;
+            ->add('aforo');
     }
 
     public function configureOptions(OptionsResolver $resolver)

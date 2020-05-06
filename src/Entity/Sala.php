@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sala
  *
- * @ORM\Table(name="sala", indexes={@ORM\Index(name="fk_sala_aforo1_idx", columns={"aforo_tamanio"})})
+ * @ORM\Table(name="sala")
  * @ORM\Entity
  */
 class Sala
@@ -24,14 +24,11 @@ class Sala
     private $idsala;
 
     /**
-     * @var \Aforo
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Aforo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="aforo_tamanio", referencedColumnName="tamanio")
-     * })
+     * @ORM\Column(name="aforo", type="integer", nullable=false)
      */
-    private $aforoTamanio;
+    private $aforo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -61,14 +58,14 @@ class Sala
         return $this->idsala;
     }
 
-    public function getAforoTamanio()
+    public function getAforo(): ?int
     {
-        return $this->aforoTamanio;
+        return $this->aforo;
     }
 
-    public function setAforoTamanio(?Aforo $aforoTamanio): self
+    public function setAforo(int $aforo): self
     {
-        $this->aforoTamanio = $aforoTamanio;
+        $this->aforo = $aforo;
 
         return $this;
     }
@@ -99,8 +96,17 @@ class Sala
         return $this;
     }
 
-    public function __toString()
+    /**
+     * Set the value of idsala
+     *
+     * @param  int  $idsala
+     *
+     * @return  self
+     */
+    public function setIdsala(int $idsala)
     {
-        return $this->idsala;
+        $this->idsala = $idsala;
+
+        return $this;
     }
 }

@@ -2,7 +2,7 @@
 {% block title %}Mantenimiento{% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset("css/mantenimiento.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/mantenimiento/principal.css") }}">
     <div id="contenedor">
         <div id="entrada">
             <a href="{{path("entrada_index")}}"><h3>Entrada</h3></a>
@@ -28,10 +28,7 @@
             <a href="{{path("usuario_index")}}"><h3>Usuario</h3></a>
             <a href="{{path("usuario_index")}}"><img src="{{asset('imagenes/usuario.ico')}}" alt=""></a>
         </div>
-        <div id="aforo">
-            <a href="{{path("aforo_index")}}"><h3>Aforo</h3></a>
-            <a href="{{path("aforo_index")}}"><img src="{{asset('imagenes/aforo.ico')}}" alt=""></a>
-        </div>
+        
     </div>
     
 {% endblock %}

@@ -3,20 +3,41 @@
 {% block title %}Sala{% endblock %}
 
 {% block body %}
+    <link href="{{ asset("css/mantenimiento/detallesSala.css") }}" rel="stylesheet">
     <h1>Sala</h1>
+    <p>Número de asientos total: {{ sala.aforo }}</p>
+    
+    <div id="asientos">
+        <ul>
+            {% for i in 0.. sala.aforo %}
+                {% if i == 0 %}
+                    <li>
+                {% endif %}
+                {% if i is divisible by(5) %}
+                    </li>
+                    <li>
+                {% endif %}
+                
+                
+                 <!--Aquí se pinta la primera fila de 5 asientos de minuválidos-->
+                {% if i < 5 %}
+                    <img src="{{ asset('imagenes/minusvalido.ico') }}" alt="" class="{{ i }}">
+                {% endif %}
+                {% if i > 5 %}
+                    <img src="{{ asset('imagenes/libre.ico') }}" alt="" class="{{ i }}">
+                {% endif %}
+                {% if i == sala.aforo %}
+                    </li>
+                {% endif %}
+            {% endfor %} 
+        </ul>
+    </div>
+    <div id="botones">
+        <a href="{{ path('sala_index') }}" class="btn">Ir a listado de salas.</a>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id sala</th>
-                <td>{{ sala.idsala }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }}" class="btn">Editar</a>
 
-    <a href="{{ path('sala_index') }}">Ir a listado de salas</a>
-
-    <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }}">Editar</a>
-
-    {{ include('sala/borrar.html.twig') }}
+        {{ include('sala/borrar.html.twig') }}
+    </div>
+    
 {% endblock %}
