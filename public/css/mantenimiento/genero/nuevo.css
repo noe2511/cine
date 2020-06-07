@@ -1,0 +1,56 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+}
+
+p
+{
+    float:left;
+}
+
+input
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+    float:left;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+}
+
+
+#contenedor
+{
+    width: 400px;
+    height: 400px;
+    margin-left:10px;
+}
+
+
+
+div > label
+{
+    float:left; 
+    margin-left:8px;
+    font-size: large;
+    margin-top:15px;
+}
+
+button
+{
+    display:flex;
+    margin-top: 10px;
+    float:left;
+}
+
+#genero_nombre
+{
+    margin: 20px;
+}
+

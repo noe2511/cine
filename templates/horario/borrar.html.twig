@@ -1,5 +1,0 @@
-<form method="post" action="{{ path('horario_borrar', {'fecha': horario.fecha}) }}" onsubmit="return confirm('¿Está seguro que quiere borrar este horario?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ horario.fecha) }}">
-    <button class="btn">Borrar</button>
-</form>

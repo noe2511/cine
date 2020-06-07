@@ -76,7 +76,7 @@ class Entrada
         return $this->horaInicio;
     }
 
-    public function getAsientoIdasiento(): ?Asiento
+    public function getAsientoIdasiento()
     {
         return $this->asientoIdasiento;
     }
@@ -88,7 +88,7 @@ class Entrada
         return $this;
     }
 
-    public function getPeliculaIdpelicula(): ?Pelicula
+    public function getPeliculaIdpelicula()
     {
         return $this->peliculaIdpelicula;
     }
@@ -100,7 +100,7 @@ class Entrada
         return $this;
     }
 
-    public function getSalaIdsala(): ?Sala
+    public function getSalaIdsala()
     {
         return $this->salaIdsala;
     }
@@ -111,6 +111,4 @@ class Entrada
 
         return $this;
     }
-
-
 }

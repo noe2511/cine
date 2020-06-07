@@ -3,9 +3,23 @@
 {% block title %}Nueva película{% endblock %}
 
 {% block body %}
+<div class="container">
+    <link href="{{ asset("css/mantenimiento/pelicula/nueva.css") }}" rel="stylesheet">
     <h1>Crear nueva película</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.titulo)}}
+    {{ form_row(form.descripcion)}}
+    {{ form_row(form.generoIdgenero,{'label':'Género'})}}
+    {{ form_rest(form)}}
+    <input type="submit" value="Guardar" class="btn">
 
-    {{ include('pelicula/_form.html.twig') }}
+    <a href="{{ path('pelicula_index') }}" class="btn">Ir a listado de películas</a>
 
-    <a href="{{ path('pelicula_index') }}">Ir a listado de películas</a>
+    <script type="application/javascript">
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    </script>
+</div>
 {% endblock %}

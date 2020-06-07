@@ -3,6 +3,8 @@
 {% block title %}Género{% endblock %}
 
 {% block body %}
+<div id="conte">
+    <link href="{{ asset("css/mantenimiento/listados.css") }}" rel="stylesheet">
     <h1>Género index</h1>
 
     <table class="table">
@@ -14,13 +16,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for genero in generos %}
+        {% for genero in paginacion %}
             <tr>
                 <td>{{ genero.idgenero }}</td>
                 <td>{{ genero.nombre }}</td>
                 <td>
-                    <a href="{{ path('genero_detalles', {'idgenero': genero.idgenero}) }}">Detalles</a>
-                    <a href="{{ path('genero_editar', {'idgenero': genero.idgenero}) }}">Editar</a>
+                    <a href="{{ path('genero_editar', {'idgenero': genero.idgenero}) }}" class="btn">Editar</a>
+                    {{ include('genero/borrar.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -30,6 +32,11 @@
         {% endfor %}
         </tbody>
     </table>
+    <div class="navigation">
+        {{ knp_pagination_render(paginacion) }}
+      </div>
 
-    <a href="{{ path('genero_nuevo') }}">Crear nuevo géneto</a>
+    <a href="{{ path('genero_nuevo') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nuevo género</a>
+    <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>
+</div>
 {% endblock %}

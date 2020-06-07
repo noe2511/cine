@@ -1,0 +1,34 @@
+h5
+{
+    color:#dfb636;
+}
+
+.card-img
+{
+    width: 400px;
+    height: 500px;
+}
+
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+    margin-left: 2%;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:#FAFAD2;
+}
+
+form
+{
+    display:inline-block;
+}
+
+#botones
+{
+    margin-top: 2%;
+}

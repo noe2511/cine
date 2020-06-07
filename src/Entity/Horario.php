@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Horario
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="idHorario", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idHorario;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
@@ -59,12 +69,27 @@ class Horario
         return $this->fecha;
     }
 
+    public function setFecha(\DateTimeInterface $fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+
     public function getHorainicio(): ?\DateTimeInterface
     {
         return $this->horainicio;
     }
 
-    public function getPeliculaIdpelicula(): ?Pelicula
+    public function setHorainicio(\DateTimeInterface $horainicio): self
+    {
+        $this->horainicio = $horainicio->format('H:i:s');
+
+        return $this;
+    }
+
+    public function getPeliculaIdpelicula()
     {
         return $this->peliculaIdpelicula;
     }
@@ -76,7 +101,7 @@ class Horario
         return $this;
     }
 
-    public function getSalaIdsala(): ?Sala
+    public function getSalaIdsala()
     {
         return $this->salaIdsala;
     }
@@ -88,5 +113,8 @@ class Horario
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->fecha;
+    }
 }

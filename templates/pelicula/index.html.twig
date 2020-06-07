@@ -7,45 +7,66 @@
     <link href="{{ asset("css/mantenimiento/listados.css") }}" rel="stylesheet">
     <h1>Pelicula</h1>
 
+    {% for pelicula in paginacion %}
     <table class="table">
-        <thead>
-            <tr>
-                <th>Id Película</th>
-                <th>Director</th>
-                <th>Fecha Estreno</th>
-                <th>Duración</th>
-                <th>Descripción</th>
-                <th>Actores</th>
-                <th>Imagen</th>
-                <th>Título</th>
-                <th>Trailer</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pelicula in peliculas %}
-            <tr>
-                <td>{{ pelicula.idpelicula }}</td>
-                <td>{{ pelicula.director }}</td>
-                <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
-                <td>{{ pelicula.duracion }}</td>
-                <td>{{ pelicula.descripcion }}</td>
-                <td>{{ pelicula.actores }}</td>
-                <td>{{ pelicula.imagen }}</td>
-                <td>{{ pelicula.titulo }}</td>
-                <td>{{ pelicula.trailer }}</td>
-                <td>
-                    <a href="{{ path('pelicula_detalles', {'idpelicula': pelicula.idpelicula}) }}" class="btn">Detalles</a>
-                    <a href="{{ path('pelicula_editar', {'idpelicula': pelicula.idpelicula}) }}" class="btn">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">No hay películas almacenadas.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
+        <tr>
+            <th>Id película</th>
+            <td>{{ pelicula.idpelicula }}</td>
+        </tr>
+        <tr>
+            <th>Director</th>
+            <td>{{ pelicula.director }}</td>
+        </tr>
+        <tr>
+            <th>Fecha Estreno</th>
+            <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Duración</th>
+            <td>{{ pelicula.duracion }}</td>
+        </tr>
+        <tr>
+            <th>Descripción</th>
+            <td>{{ pelicula.descripcion }}</td>
+        </tr>
+        <tr>
+            <th>Actores</th>
+            <td>{{ pelicula.actores }}</td>
+        </tr>
+        <tr>
+            <th>Imagen</th>
+            <td>
+                <a class="agrandar" href="">
+                    <img src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt="imagen" style="width: 10vh; height: 10vh;">
+                    <span>
+                        <img src="{{asset('imagenes/' ~ pelicula.imagen)}}" /><br />
+                    </span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Título</th>
+            <td>{{ pelicula.titulo }}</td>
+        </tr>
+        <tr>
+            <th>Trailer</th>
+            <td>{{ pelicula.trailer }}</td>
+        </tr>
+        <tr>
+            <th>Acciones</th>
+            <td>
+                <a href="{{ path('pelicula_detalles', {'idpelicula': pelicula.idpelicula}) }}" class="btn">Detalles</a>
+                <a href="{{ path('pelicula_editar', {'idpelicula': pelicula.idpelicula}) }}" class="btn">Editar</a>
+                {{ include('pelicula/borrar.html.twig') }}
+            </td>
+        </tr>
     </table>
+       
+    {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(paginacion) }}
+      </div>
 
     <a href="{{ path('pelicula_nueva') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nueva película</a>
     <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>

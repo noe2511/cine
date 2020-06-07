@@ -3,7 +3,7 @@
 {% block title %}Sala{% endblock %}
 
 {% block body %}
-    <link href="{{ asset("css/mantenimiento/detallesSala.css") }}" rel="stylesheet">
+    <link href="{{ asset("css/mantenimiento/sala/detallesSala.css") }}" rel="stylesheet">
     <h1>Sala</h1>
     <p>Número de asientos total: {{ sala.aforo }}</p>
     
@@ -21,10 +21,10 @@
                 
                  <!--Aquí se pinta la primera fila de 5 asientos de minuválidos-->
                 {% if i < 5 %}
-                    <img src="{{ asset('imagenes/minusvalido.ico') }}" alt="" class="{{ i }}">
+                    <img src="{{ asset('imagenes/minusvalido.ico') }}" alt="" id="{{ i }}">
                 {% endif %}
                 {% if i > 5 %}
-                    <img src="{{ asset('imagenes/libre.ico') }}" alt="" class="{{ i }}">
+                    <img src="{{ asset('imagenes/libre.ico') }}" alt="" id="{{ i }}">
                 {% endif %}
                 {% if i == sala.aforo %}
                     </li>

@@ -16,13 +16,14 @@
             </tr>
         </thead>
         <tbody>
-        {% for sala in salas %}
+        {% for sala in paginacion %}
             <tr>
                 <td>{{ sala.idsala }}</td>
                 <td>{{ sala.aforo }}</td>
                 <td>
                     <a href="{{ path('sala_detalles', {'idsala': sala.idsala}) }} " class="btn">Detalles</a>
                     <a href="{{ path('sala_editar', {'idsala': sala.idsala}) }} " class="btn">Editar</a>
+                    {{ include('sala/borrar.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -33,7 +34,12 @@
         </tbody>
     </table>
 
+    <div class="navigation">
+        {{ knp_pagination_render(paginacion) }}
+      </div>
     <a href="{{ path('sala_nueva') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nueva</a>
     <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>
+
+    
 </div>
 {% endblock %}

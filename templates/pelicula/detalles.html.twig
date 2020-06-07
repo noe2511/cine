@@ -3,52 +3,45 @@
 {% block title %}Pelicula{% endblock %}
 
 {% block body %}
-    <h1>Pelicula</h1>
+<link href="{{ asset("css/mantenimiento/pelicula/detallesPelicula.css") }}" rel="stylesheet">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id pelicula</th>
-                <td>{{ pelicula.idpelicula }}</td>
-            </tr>
-            <tr>
-                <th>Director</th>
-                <td>{{ pelicula.director }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Estreno</th>
-                <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Duración</th>
-                <td>{{ pelicula.duracion }}</td>
-            </tr>
-            <tr>
-                <th>Descripción</th>
-                <td>{{ pelicula.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Actores</th>
-                <td>{{ pelicula.actores }}</td>
-            </tr>
-            <tr>
-                <th>Imagen</th>
-                <td>{{ pelicula.imagen }}</td>
-            </tr>
-            <tr>
-                <th>Título</th>
-                <td>{{ pelicula.titulo }}</td>
-            </tr>
-            <tr>
-                <th>Trailer</th>
-                <td>{{ pelicula.trailer }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>{{pelicula.titulo}}</h1>
+    <div class="card mb-3" style="width: 98%;margin:15px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{asset('imagenes/' ~ pelicula.imagen)}}" class="card-img" alt="" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5>Descripción:</h5>
+              <p class="card-text">{{pelicula.Descripcion}}</p>
+              <h5>Director:</h5>
+              <p class="card-text">{{pelicula.director}}</p>
+              <h5>Actores:</h5>
+              <p class="card-text">{{pelicula.Actores}}</p>
+              <h5>Género</h5>
+              <p class="card-text">{{pelicula.generoIdgenero}}</p>
+              <h5>Duración</h5>
+              <p class="card-text">{{pelicula.duracion}} minutos</p>
+              <h5>Fecha de estreno:</h5>
+              
+              <p class="card-text">{{pelicula.fechaEstreno|date("m/d/Y")}}</p>
 
-    <a href="{{ path('pelicula_index') }}">Ir a listado de películas.</a>
+              <div id="botones">
+                <a href="{{ path('pelicula_index') }}" class="btn">Ir a listado de películas.</a>
 
-    <a href="{{ path('pelicula_editar', {'idpelicula': pelicula.idpelicula}) }}">Editar</a>
+                <a href="{{ path('pelicula_editar', {'idpelicula': pelicula.idpelicula}) }} " class="btn">Editar</a>
 
-    {{ include('pelicula/borrar.html.twig') }}
+                {{ include('pelicula/borrar.html.twig') }}
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="{{pelicula.trailer}}" frameborder="0"></iframe>
+      </div>    
 {% endblock %}

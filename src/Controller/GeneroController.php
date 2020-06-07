@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Genero;
 use App\Form\GeneroType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,14 +18,20 @@ class GeneroController extends AbstractController
     /**
      * @Route("/", name="genero_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
         $generos = $this->getDoctrine()
             ->getRepository(Genero::class)
             ->findAll();
 
+        $paginacion = $paginator->paginate(
+            $generos, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+
         return $this->render('genero/index.html.twig', [
-            'generos' => $generos,
+            'paginacion' => $paginacion,
         ]);
     }
 

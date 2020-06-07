@@ -1,0 +1,38 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+    float:left;
+    margin: 15px;
+}
+
+input, select
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+    margin:10px;
+}
+
+label
+{
+    margin:10px;
+}
+
+.footer
+{
+    margin-top:100px;
+}
+
+#pelicula_descripcion
+{
+    border: solid 2px;
+    border-color:#dfb636;
+}

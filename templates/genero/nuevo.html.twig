@@ -3,9 +3,12 @@
 {% block title %}Nuevo Género{% endblock %}
 
 {% block body %}
+<div id="contenedor">
+    <link href="{{ asset("css/mantenimiento/genero/nuevo.css") }}" rel="stylesheet">
     <h1>Crear nuevo género</h1>
 
     {{ include('genero/_form.html.twig') }}
 
-    <a href="{{ path('genero_index') }}">Ir a listado de género</a>
+    <a href="{{ path('genero_index') }}" class="btn">Ir a listado de género</a>
+</div>
 {% endblock %}

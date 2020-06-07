@@ -1,0 +1,74 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+}
+
+p
+{
+    float:left;
+}
+
+input
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+    float:left;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+}
+
+#abajo
+{
+    float:left;
+    margin-top: 20px;
+}
+
+#contenedor
+{
+    width: 400px;
+    height: 400px;
+    margin-left:10px;
+}
+
+#mat
+{
+    display:inline-grid;
+}
+
+div > label
+{
+    float:left; 
+    margin-left:8px;
+    font-size: large;
+    margin-top:15px;
+}
+
+button
+{
+    display:flex;
+    margin-top: 10px;
+    float:left;
+}
+
+#actualizar
+{
+    float:left;
+}
+
+#volver
+{
+    margin-top:10px;
+}
+
+#sala_aforo
+{
+    margin:10px;
+    margin-top:15px
+}

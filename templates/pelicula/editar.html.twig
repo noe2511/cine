@@ -3,11 +3,23 @@
 {% block title %}Editar pelicula{% endblock %}
 
 {% block body %}
+
+<div class="container">
+    <link href="{{ asset("css/mantenimiento/pelicula/nueva.css") }}" rel="stylesheet">
     <h1>Editar pelicula</h1>
 
     {{ include('pelicula/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href="{{ path('pelicula_index') }}">Ir a listado de películas</a>
+    <a href="{{ path('pelicula_index') }}" class="btn">Ir a listado de películas</a>
 
     {{ include('pelicula/borrar.html.twig') }}
+
+<script type="application/javascript">
+    
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    </script>
+</div>
 {% endblock %}

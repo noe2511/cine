@@ -47,7 +47,7 @@ class Pelicula
     /**
      * @var string
      *
-     * @ORM\Column(name="Descripcion", type="string", length=150, nullable=false)
+     * @ORM\Column(name="Descripcion", type="string", length=500, nullable=false)
      */
     private $descripcion;
 
@@ -205,7 +205,7 @@ class Pelicula
         return $this;
     }
 
-    public function getGeneroIdgenero(): ?Genero
+    public function getGeneroIdgenero()
     {
         return $this->generoIdgenero;
     }
@@ -245,4 +245,8 @@ class Pelicula
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->titulo;
+    }
 }

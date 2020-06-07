@@ -3,11 +3,15 @@
 {% block title %}Editar Genero{% endblock %}
 
 {% block body %}
+<div id="contenedor">
+    <link href="{{ asset("css/mantenimiento/genero/editar.css") }}" rel="stylesheet">
     <h1>Editar Genero</h1>
 
     {{ include('genero/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    <div id="botones">
+        <a href="{{ path('genero_index') }}" class="btn">Ir a listado de género.</a>
 
-    <a href="{{ path('genero_index') }}">Ir a listado de género.</a>
-
-    {{ include('genero/borrar.html.twig') }}
+        {{ include('genero/borrar.html.twig') }}
+    </div>
+</div>
 {% endblock %}

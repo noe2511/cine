@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Pelicula;
 use App\Form\PeliculaType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,14 +18,20 @@ class PeliculaController extends AbstractController
     /**
      * @Route("/", name="pelicula_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
         $peliculas = $this->getDoctrine()
             ->getRepository(Pelicula::class)
             ->findAll();
 
+        $paginacion = $paginator->paginate(
+            $peliculas, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            1 /*limit per page*/
+        );
+
         return $this->render('pelicula/index.html.twig', [
-            'peliculas' => $peliculas,
+            'paginacion' => $paginacion,
         ]);
     }
 
@@ -38,6 +45,18 @@ class PeliculaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $ficheroimagen = $form['imagen']->getData();
+            if ($ficheroimagen) {
+                $nombrearchivo = $ficheroimagen->getClientOriginalName();
+                $ficheroimagen->move(
+                    $this->getParameter('directorio_imagenes'),
+                    $nombrearchivo
+                );
+                $pelicula->setImagen($nombrearchivo);
+            } else {
+                $pelicula->setImagen("no_disponible.png");
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($pelicula);
             $entityManager->flush();
@@ -70,6 +89,16 @@ class PeliculaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $ficheroimagen = $form['imagen']->getData();
+            if ($ficheroimagen) {
+                $nombrearchivo = $ficheroimagen->getClientOriginalName();
+                $ficheroimagen->move(
+                    $this->getParameter('directorio_imagenes'),
+                    $nombrearchivo
+                );
+                $pelicula->setImagen($nombrearchivo);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('pelicula_index');

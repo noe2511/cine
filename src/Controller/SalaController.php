@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/mantenimiento/sala")
@@ -17,15 +18,22 @@ class SalaController extends AbstractController
 {
     /**
      * @Route("/", name="sala_index", methods={"GET"})
+     * @param PaginatorInterface $paginator
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
         $salas = $this->getDoctrine()
             ->getRepository(Sala::class)
             ->findAll();
 
+        $paginacion = $paginator->paginate(
+            $salas, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            5 /*limit per page*/
+        );
+
         return $this->render('sala/index.html.twig', [
-            'salas' => $salas,
+            'paginacion' => $paginacion,
         ]);
     }
 
@@ -43,7 +51,18 @@ class SalaController extends AbstractController
             $entityManager->persist($sala);
             $entityManager->flush();
 
-            for ($i = 0; $i < $sala->getAforo(); $i++) {
+            for ($i = 0; $i < 5; $i++) {
+                $asiento = new Asiento();
+                $asiento->setTipo("minusvalido");
+                $asiento->setEstado("libre");
+                $asiento->setSalaIdsala($sala);
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($asiento);
+                $entityManager->flush();
+            }
+
+            for ($i = 5; $i < $sala->getAforo(); $i++) {
                 $asiento = new Asiento();
                 $asiento->setTipo("normal");
                 $asiento->setEstado("libre");
