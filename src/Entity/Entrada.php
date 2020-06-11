@@ -7,35 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Entrada
  *
- * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_Sala_has_Pelicula_Sala1_idx", columns={"Sala_idSala"}), @ORM\Index(name="fk_Sala_has_Pelicula_Pelicula1_idx", columns={"Pelicula_idPelicula"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
+ * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_entrada_horario1_idx", columns={"horario_idHorario"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
  * @ORM\Entity
  */
 class Entrada
 {
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="fecha", type="date", nullable=false)
+     * @ORM\Column(name="idEntrada", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $fecha;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="Hora_inicio", type="time", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $horaInicio;
+    private $identrada;
 
     /**
      * @var \Asiento
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Asiento")
+     * @ORM\ManyToOne(targetEntity="Asiento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Asiento_idAsiento", referencedColumnName="idAsiento")
      * })
@@ -43,37 +32,18 @@ class Entrada
     private $asientoIdasiento;
 
     /**
-     * @var \Pelicula
+     * @var \Horario
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Pelicula")
+     * @ORM\ManyToOne(targetEntity="Horario")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Pelicula_idPelicula", referencedColumnName="idPelicula")
+     *   @ORM\JoinColumn(name="horario_idHorario", referencedColumnName="idHorario")
      * })
      */
-    private $peliculaIdpelicula;
+    private $horarioIdhorario;
 
-    /**
-     * @var \Sala
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Sala")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Sala_idSala", referencedColumnName="idSala")
-     * })
-     */
-    private $salaIdsala;
-
-    public function getFecha(): ?\DateTimeInterface
+    public function getIdentrada(): ?int
     {
-        return $this->fecha;
-    }
-
-    public function getHoraInicio(): ?\DateTimeInterface
-    {
-        return $this->horaInicio;
+        return $this->identrada;
     }
 
     public function getAsientoIdasiento()
@@ -88,26 +58,14 @@ class Entrada
         return $this;
     }
 
-    public function getPeliculaIdpelicula()
+    public function getHorarioIdhorario()
     {
-        return $this->peliculaIdpelicula;
+        return $this->horarioIdhorario;
     }
 
-    public function setPeliculaIdpelicula(?Pelicula $peliculaIdpelicula): self
+    public function setHorarioIdhorario(?Horario $horarioIdhorario): self
     {
-        $this->peliculaIdpelicula = $peliculaIdpelicula;
-
-        return $this;
-    }
-
-    public function getSalaIdsala()
-    {
-        return $this->salaIdsala;
-    }
-
-    public function setSalaIdsala(?Sala $salaIdsala): self
-    {
-        $this->salaIdsala = $salaIdsala;
+        $this->horarioIdhorario = $horarioIdhorario;
 
         return $this;
     }

@@ -10,8 +10,10 @@
     {{ include('genero/_form.html.twig', {'button_label': 'Actualizar'}) }}
     <div id="botones">
         <a href="{{ path('genero_index') }}" class="btn">Ir a listado de género.</a>
-
-        {{ include('genero/borrar.html.twig') }}
+        <div id="borrar">
+            {{ include('genero/borrar.html.twig') }}
+        </div>
+        
     </div>
 </div>
 {% endblock %}

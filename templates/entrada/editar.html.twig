@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editar Entrada{% endblock %}
+{% block title %}Editar entrada{% endblock %}
 
 {% block body %}
-    <h1>Editar Entrada</h1>
+<div id="conte">
+    <link href="{{ asset("css/mantenimiento/entrada/nueva.css") }}" rel="stylesheet">
+    <h1>Editar entrada</h1>
 
     {{ include('entrada/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href="{{ path('entrada_index') }}">Ir a listado de entradas</a>
+    <a href="{{ path('entrada_index') }}" class="btn">Volver a listado de entradas.</a>
 
     {{ include('entrada/borrar.html.twig') }}
+</div>
 {% endblock %}

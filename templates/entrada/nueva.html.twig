@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nueva Entrada{% endblock %}
+{% block title %}Nueva entrada{% endblock %}
 
 {% block body %}
+<div id="contenedor">
+    <link href="{{ asset("css/mantenimiento/entrada/nueva.css") }}" rel="stylesheet">
     <h1>Crear nueva entrada</h1>
 
     {{ include('entrada/_form.html.twig') }}
 
-    <a href="{{ path('entrada_index') }}">Ir a listado de entradas.</a>
+    <a href="{{ path('entrada_index') }}" class="btn">Volver a listado de entradas</a>
+</div>
 {% endblock %}

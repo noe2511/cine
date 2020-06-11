@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Sala
@@ -28,9 +27,6 @@ class Sala
      * @var int
      *
      * @ORM\Column(name="aforo", type="integer", nullable=false)
-     * @Assert\NotBlank()
-     * @Assert\Range(min = 20, 
-     * minMessage="El aforo de la sala no puede ser inferior a 20")
      */
     private $aforo;
 
@@ -96,20 +92,6 @@ class Sala
         if ($this->peliculaIdpelicula->contains($peliculaIdpelicula)) {
             $this->peliculaIdpelicula->removeElement($peliculaIdpelicula);
         }
-
-        return $this;
-    }
-
-    /**
-     * Set the value of idsala
-     *
-     * @param  int  $idsala
-     *
-     * @return  self
-     */
-    public function setIdsala(int $idsala)
-    {
-        $this->idsala = $idsala;
 
         return $this;
     }

@@ -3,20 +3,31 @@
 {% block title %}Entrada{% endblock %}
 
 {% block body %}
+<div id="conte">
+    <link href="{{ asset("css/mantenimiento/entrada/detalles.css") }}" rel="stylesheet">
     <h1>Entrada</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>HoraInicio</th>
-                <td>{{ entrada.horaInicio ? entrada.horaInicio|date('H:i:s') : '' }}</td>
+                <th>Identrada</th>
+                <td>{{ entrada.identrada }}</td>
+            </tr>
+            <tr>
+                <th>Id asiento</th>
+                <td>{{ entrada.asientoIdasiento }}</td>
+            </tr>
+            <tr>
+                <th>Id horario</th>
+                <td>{{ entrada.horarioIdhorario }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('entrada_index') }}">Ir a listado de entradas.</a>
+    <a href="{{ path('entrada_index') }}" class="btn">Volver a listado de entradas.</a>
 
-    <a href="{{ path('entrada_editar', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
+    <a href="{{ path('entrada_editar', {'identrada': entrada.identrada}) }}" class="btn">Editar</a>
 
     {{ include('entrada/borrar.html.twig') }}
+</div>
 {% endblock %}

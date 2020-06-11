@@ -22,9 +22,8 @@ input
     border: solid 2px;
     border-color:#dfb636;
     background-color:white;
-    margin-top: 5px;
+    margin:  1%;
 }
-
 
 #contenedor
 {
@@ -33,27 +32,21 @@ input
     margin-left:10px;
 }
 
-
-
-div > label
-{
-    float:left; 
-    margin-left:8px;
-    font-size: large;
-    margin-top:15px;
-}
-
 button
 {
     display:flex;
-    margin-top: 10px;
     float:left;
 }
 
-
-
-#genero_nombre
+input, select
 {
-    margin: 10px;
+    border: solid 2px;
+    border-color:#dfb636;
+    background-color:white;
+    margin:10px;
 }
 
+form
+{
+    display:initial;
+}

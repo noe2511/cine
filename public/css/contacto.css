@@ -1,0 +1,14 @@
+.contact-form form
+{
+    display: flex;
+}
+
+.contact-right
+{
+    width: 25%;
+}
+
+.contact-left
+{
+    width: 25%;
+}

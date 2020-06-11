@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Horario{% endblock %}
+
+{% block body %}
+<div id="contenedor">
+
+    <link href="{{ asset("css/mantenimiento/horario/nuevo.css") }}" rel="stylesheet">
+    <h1>Editar Horario</h1>
+ 
+    
+
+    
+    {{ include('horario/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    <div id="botones">
+    <a href="{{ path('horario_index') }}" class="btn">Volver a listado de horarios.</a>
+    <div id="borrar">
+        {{ include('horario/borrar.html.twig') }}
+    </div>
+    
+    </div>
+</div>
+{% endblock %}

@@ -36,12 +36,9 @@ class Asiento
     private $estado;
 
     /**
-     * @var \Sala
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Sala")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Sala_idSala", referencedColumnName="idSala")
-     * })
+     * @ORM\Column(name="Sala_idSala", type="integer", nullable=false)
      */
     private $salaIdsala;
 
@@ -74,12 +71,12 @@ class Asiento
         return $this;
     }
 
-    public function getSalaIdsala()
+    public function getSalaIdsala(): ?int
     {
         return $this->salaIdsala;
     }
 
-    public function setSalaIdsala(?Sala $salaIdsala): self
+    public function setSalaIdsala(int $salaIdsala): self
     {
         $this->salaIdsala = $salaIdsala;
 
@@ -88,6 +85,6 @@ class Asiento
 
     public function __toString()
     {
-        return $this->idasiento;
+        return strval($this->idasiento);
     }
 }

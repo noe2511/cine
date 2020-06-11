@@ -52,9 +52,9 @@ class EntradaController extends AbstractController
     }
 
     /**
-     * @Route("/{peliculaIdpelicula}", name="entrada_detalles", methods={"GET"})
+     * @Route("/{identrada}", name="entrada_detalles", methods={"GET"})
      */
-    public function detalles(Entrada $entrada): Response
+    public function show(Entrada $entrada): Response
     {
         return $this->render('entrada/detalles.html.twig', [
             'entrada' => $entrada,
@@ -62,7 +62,7 @@ class EntradaController extends AbstractController
     }
 
     /**
-     * @Route("/{peliculaIdpelicula}/editar", name="entrada_editar", methods={"GET","POST"})
+     * @Route("/{identrada}/editar", name="entrada_editar", methods={"GET","POST"})
      */
     public function editar(Request $request, Entrada $entrada): Response
     {
@@ -82,11 +82,11 @@ class EntradaController extends AbstractController
     }
 
     /**
-     * @Route("/{peliculaIdpelicula}", name="entrada_borrar", methods={"DELETE"})
+     * @Route("/{identrada}", name="entrada_borrar", methods={"DELETE"})
      */
     public function borrar(Request $request, Entrada $entrada): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $entrada->getPeliculaIdpelicula(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $entrada->getIdentrada(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($entrada);
             $entityManager->flush();

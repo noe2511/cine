@@ -1,0 +1,40 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+}
+
+#conte
+{
+    margin-left: 20px;
+}
+
+.table
+{
+    background-color: #FAFAD2;
+}
+
+th
+{
+    color:#dfb636;
+}
+
+td
+{
+    color:grey;
+    font-weight: bold;
+}
+
+.btn
+{
+    border: solid 2px;
+    border-color:#dfb636;
+    margin-right: 1%;
+
+}
+
+form
+{
+    display:inline-block;
+
+}

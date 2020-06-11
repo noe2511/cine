@@ -22,7 +22,7 @@ input
     border: solid 2px;
     border-color:#dfb636;
     background-color:white;
-    float:left;
+
     margin-right: 1.5%;
 }
 
@@ -42,7 +42,14 @@ input, select
     margin:10px;
 }
 
-#pie
+button
 {
-    margin-top: 5%;
+    display:flex;
+
+    float:left;
+}
+
+#botones
+{
+    display: flex;
 }

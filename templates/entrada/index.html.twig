@@ -1,37 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Entrada{% endblock %}
+{% block title %}Entrada index{% endblock %}
 
 {% block body %}
+<div id="conte">
+    <link href="{{ asset("css/mantenimiento/listados.css") }}" rel="stylesheet">
+    <h1>Entrada index</h1>
 
-    <link href="{{ asset("css/listados.css") }}" rel="stylesheet">
-    <div id="conte">
-        <h1>Entrada</h1>
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Hora Inicio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for entrada in entradas %}
-                <tr>
-                    <td>{{ entrada.horaInicio ? entrada.horaInicio|date('H:i:s') : '' }}</td>
-                    <td>
-                        <a href="{{ path('entrada_detalles', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Detalles</a>
-                        <a href="{{ path('entrada_editar', {'peliculaIdpelicula': entrada.peliculaIdpelicula}) }}">Editar</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="2">No hay entradas almacenadas</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id entrada</th>
+                <th>Id asiento</th>
+                <th>Id horario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entrada in entradas %}
+            <tr>
+                <td>{{ entrada.identrada }}</td>
+                <td>{{ entrada.asientoIdasiento }}</td>
+                <td>{{ entrada.horarioIdhorario }}</td>
+                <td>
+                    <a href="{{ path('entrada_detalles', {'identrada': entrada.identrada}) }}" class="btn">Detalles</a>
+                    <a href="{{ path('entrada_editar', {'identrada': entrada.identrada}) }}" class="btn">Editar</a>
+                    {{ include('entrada/borrar.html.twig') }}
 
-        <a href="{{ path('entrada_nueva') }}">Crear nueva entrada</a>
-    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">No hay entradas almacenadas</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('entrada_nueva') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nueva entrada</a>
+    <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>
+
+</div>
 {% endblock %}

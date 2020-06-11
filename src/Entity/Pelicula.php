@@ -54,7 +54,7 @@ class Pelicula
     /**
      * @var string
      *
-     * @ORM\Column(name="Actores", type="string", length=250, nullable=false)
+     * @ORM\Column(name="Actores", type="string", length=500, nullable=false)
      */
     private $actores;
 

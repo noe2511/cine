@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block title %}Contaco{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset("css/contacto.css") }}" media="all">
+
+<div class="main-contact">
+    <h3 class="head">CONTACTÁCTANOS</h3>
+    <p>ESTAREMOS ENCANTADOS DE AYUDARTE</p>
+    <div class="contact-form">
+        <form>
+            <div class="col-md-6 contact-left">
+                 <input type="text" placeholder="Nombre" required/>
+                 <input type="text" placeholder="E-mail" required/>
+                 <input type="text" placeholder="Teléfono" required/>
+             </div>
+             <div class="col-md-6 contact-right">
+                <textarea placeholder="Mensaje"></textarea>
+                <input type="submit" value="ENVIAR"/>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

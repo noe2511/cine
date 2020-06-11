@@ -45,4 +45,13 @@ class PrincipalController extends AbstractController
     {
         return $this->render("mantenimiento/vista.html.twig");
     }
+
+    /** @Route("/contacto", name="contacto")
+     *
+     * @return void
+     */
+    public function Contacto()
+    {
+        return $this->render("menu/contacto.html.twig");
+    }
 }

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horario index{% endblock %}
+
+{% block body %}
+<div id="conte">
+    <link href="{{ asset("css/mantenimiento/listados.css") }}" rel="stylesheet">
+    <h1>Horario index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id horario</th>
+                <th>Hora</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for horario in paginacion %}
+            <tr>
+                <td>{{ horario.idhorario }}</td>
+                <td>{{ horario.horainicio ? horario.horainicio|date('H:i:s') : '' }}</td>
+                <td>{{ horario.fecha ? horario.fecha|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('horario_detalles', {'idhorario': horario.idhorario}) }}" class="btn">Detalles</a>
+                    <a href="{{ path('horario_editar', {'idhorario': horario.idhorario}) }}" class="btn">Editar</a>
+                    {{ include('horario/borrar.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No hay horarios almacenados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(paginacion) }}
+    </div>
+
+    <a href="{{ path('horario_nuevo') }}" class="btn" style="margin-bottom: 5px;" id="nuevo">Crear nuevo horario</a>
+    <a href="{{ path("mantenimiento") }}" id="volver" class="btn" style="margin-bottom: 5px;background-color:white;" id="volver">Volver a mantenimiento</a>
+
+</div>
+{% endblock %}
