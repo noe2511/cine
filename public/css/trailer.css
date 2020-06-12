@@ -1,0 +1,55 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+    margin-left:3%;
+}
+
+.play-icon img
+{
+    height: 400px;
+}
+
+h3
+{
+    height: 70px;
+    margin-top: 1%;
+}
+
+.content-grid
+{
+    align-content: center;
+   display: grid;
+   margin-top: 1%;
+}
+
+.content-grids
+{
+    margin-left: 15%;
+}
+
+.pagination ul
+{
+    margin:0;
+    padding: 0;
+}
+
+.pagination ul li
+{
+    display:block;
+    float:left;
+    padding:0 10px;
+}
+
+.pagination
+{
+    justify-content: center;
+    
+    display: -webkit-inline-box;
+    margin-left: 40%;
+}
+
+.pagination a
+{
+    color:#dfb636;
+}

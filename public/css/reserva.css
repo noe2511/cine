@@ -1,0 +1,34 @@
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+    margin-left:3%;
+}
+
+.pelicula
+{
+    height: 500px;
+}
+
+.tit
+{
+    color: orange;
+}
+
+.pelicula-section
+{
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: x-large;
+}
+
+#ent
+{
+    margin-left: 245px;
+    text-align: center;
+}
+
+p.info
+{
+    height:  35px;
+}

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block title %}Horarios{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% for horario in horarios %}
+
+        <div id="horario">
+            <p>{{ horario.fecha }} {{ horario.horainicio }}</p>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

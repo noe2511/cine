@@ -47,4 +47,13 @@ class PeliculasRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function trailer()
+    {
+        $em = $this->getEntityManager();
+        $consulta = $em->createQuery(
+            'select p.trailer, p.titulo, p.imagen, p.idpelicula from App\Entity\Pelicula p'
+        );
+        return $consulta->getResult();
+    }
 }

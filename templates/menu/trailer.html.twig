@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %}Trailer{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset("css/trailer.css") }}" media="all">
+<h1>Trailer</h1>
+<div class="content-grids">
+{% for pelicula in paginacion %}
+
+	<div class="content-grid">
+		<a class="play-icon popup-with-zoom-anim" href="{{ path('trailer_pelicula', {'idpelicula': pelicula.idpelicula}) }}">
+			<img src="{{asset('imagenes/' ~ pelicula.imagen)}}" title="allbum-name" /></a>
+		<h3>{{ pelicula.titulo }}</h3>
+		
+		<a class="button play-icon popup-with-zoom-anim" href="{{ path('trailer_pelicula', {'idpelicula': pelicula.idpelicula}) }}">Ver trailer ahora</a>
+
+	</div>
+	
+
+{% endfor %}
+</div>
+
+<div class="navigation">
+	{{ knp_pagination_render(paginacion) }}
+</div>
+
+{% endblock %}
