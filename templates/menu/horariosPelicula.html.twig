@@ -3,15 +3,22 @@
 
 {% block body %}
 
+<link href="{{ asset("css/horariosPelicula.css") }}" rel="stylesheet">
+<h1>Horarios</h1>
+
     <div class="container">
+        
         {% for horario in horarios %}
 
         <div id="horario">
-            <p>{{ horario.fecha }} {{ horario.horainicio }}</p>
-
+            <a href="{{ path('salaReserva', {'idsala': horario.salaIdsala}) }}" class="btn">{{ horario.fecha|date('d-m-Y') }} {{ horario.Horainicio|date('H:i:s') }}</a>
         </div>
+
+        {% else %}
+        <p>No hay horarios disponibles en este momento.</p>
 
         {% endfor %}
     </div>
+    
 
 {% endblock %}

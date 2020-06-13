@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Pelicula;
+use App\Entity\Sala;
+use App\Entity\Asiento;
+use App\Entity\Horario;
 use App\Repository\HorarioRepository;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -33,8 +36,34 @@ class ReservaController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/horario_pelicula/{idpelicula}", name="horarioPelicula", methods={"GET"})
+     */
     public function mostrarHorarios(HorarioRepository $prepository, Pelicula $pelicula)
     {
         $horarios = $prepository->horariosPelicula($pelicula->getIdpelicula());
+
+        return $this->render('menu/horariosPelicula.html.twig', [
+            'horarios' => $horarios,
+        ]);
+    }
+
+    /**
+     * @Route("/sala_reserva/{idsala}", name="salaReserva", methods={"GET"})
+     */
+    public function salaReserva(Sala $sala)
+    {
+        $sala = $this->getDoctrine()
+            ->getRepository(Sala::class)
+            ->findOneBy(['idsala' => $sala->getIdsala()]);
+
+        $asientos = $this->getDoctrine()
+            ->getRepository(Asiento::class)
+            ->findBy(['salaIdsala' => $sala->getIdsala()]);
+
+        return $this->render('menu/salaReserva.html.twig', [
+            'sala' => $sala,
+            'asientos' => $asientos
+        ]);
     }
 }

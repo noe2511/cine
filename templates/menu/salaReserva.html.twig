@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sala reserva{% endblock %}
+
+{% block body %}
+<link href="{{ asset("css/mantenimiento/sala/detallesSala.css") }}" rel="stylesheet">
+<script src="{{ asset("js/reserva.js") }}"></script>
+
+<h1>Elija sus asientos</h1>
+
+<div id="asientos">
+    <ul>
+        {% for i in 0.. sala.aforo %}
+            {% if i == 0 %}
+                <li>
+            {% endif %}
+            {% if i is divisible by(5) %}
+                </li>
+                <li>
+            {% endif %}
+            
+            
+             <!--Aquí se pinta la primera fila de 5 asientos de minuválidos-->
+            {% if i < 5 %}
+                <img src="{{ asset('imagenes/minusvalido.ico') }}" alt="" id="{{ asientos[i].getIdasiento() }}" class="asiento minusvalido">
+            {% endif %}
+            {% if i >= 5 and i != sala.aforo %}
+                <img src="{{ asset('imagenes/libre.ico') }}" alt="" id="{{ asientos[i].getIdasiento() }}" class="asiento">
+            {% endif %}
+            {% if i == sala.aforo %}
+                </li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+</div>
+
+<a href="">Reservar asientos marcados.</a>
+
+{% endblock %}

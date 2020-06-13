@@ -21,7 +21,7 @@
                     <p class="info"><span class="tit">Director:</span> {{ pelicula.director }}</p>
                     <p class="info"><span class="tit">Duración:</span> {{ pelicula.duracion }} minutos</p>
                     <p class="info"><span class="tit">Género:</span> {{pelicula.generoIdgenero}}</p>
-                    <a id="ent" class="button play-icon popup-with-zoom-anim" href="{{ path('trailer_pelicula', {'idpelicula': pelicula.idpelicula}) }}"><i class="book1"></i>Sacar entrada</a>
+                    <a id="ent" class="button play-icon popup-with-zoom-anim" href="{{ path('horarioPelicula', {'idpelicula': pelicula.idpelicula}) }}"><i class="book1"></i>Reservar entrada</a>
                 </div>
             </div>
         {% endfor %}

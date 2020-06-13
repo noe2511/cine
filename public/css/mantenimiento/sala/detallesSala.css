@@ -5,17 +5,18 @@
     text-align: center;
 }
 
+h1
+{
+    font-family: 'Dancing Script', cursive;
+    color: #696969;
+    margin-left:3%;
+}
 
 #asientos ul
 {
     list-style-type: none;
 }
 
-h1
-{
-    font-family: 'Dancing Script', cursive;
-    color: #696969;
-}
 
 .btn
 {

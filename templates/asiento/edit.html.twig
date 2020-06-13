@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Asiento{% endblock %}
+
+{% block body %}
+    <h1>Edit Asiento</h1>
+
+    {{ include('asiento/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('asiento_index') }}">back to list</a>
+
+    {{ include('asiento/_delete_form.html.twig') }}
+{% endblock %}
