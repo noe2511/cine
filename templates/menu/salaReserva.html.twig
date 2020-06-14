@@ -6,7 +6,10 @@
 <link href="{{ asset("css/mantenimiento/sala/detallesSala.css") }}" rel="stylesheet">
 <script src="{{ asset("js/reserva.js") }}"></script>
 
+
+
 <h1>Elija sus asientos</h1>
+
 
 <div id="asientos">
     <ul>
@@ -25,7 +28,7 @@
                 <img src="{{ asset('imagenes/minusvalido.ico') }}" alt="" id="{{ asientos[i].getIdasiento() }}" class="asiento minusvalido">
             {% endif %}
             {% if i >= 5 and i != sala.aforo %}
-                <img src="{{ asset('imagenes/libre.ico') }}" alt="" id="{{ asientos[i].getIdasiento() }}" class="asiento">
+                <img src="{{ asset('imagenes/libre.ico') }}" alt="" id="{{ asientos[i].getIdasiento() }}" class="asiento normal">
             {% endif %}
             {% if i == sala.aforo %}
                 </li>
@@ -34,6 +37,11 @@
     </ul>
 </div>
 
-<a href="">Reservar asientos marcados.</a>
+
+    <span>Introduce tu correo:</span>
+    <input type="email" id="correo">
+    <br>
+    <button id="reserva" >Reservar asientos marcados.</button>
+
 
 {% endblock %}

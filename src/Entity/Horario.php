@@ -7,7 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Horario
  *
- * @ORM\Table(name="horario", indexes={@ORM\Index(name="fk_Horario_pelicula1_idx", columns={"pelicula_idPelicula"}), @ORM\Index(name="fk_Horario_sala1_idx", columns={"sala_idSala"})})
+ * @ORM\Table(name="horario", 
+ * indexes={@ORM\Index(name="fk_Horario_pelicula1_idx", 
+ * columns={"pelicula_idPelicula"}),
+ *  @ORM\Index(name="fk_Horario_sala1_idx", 
+ * columns={"sala_idSala"})})
  * @ORM\Entity
  */
 class Horario

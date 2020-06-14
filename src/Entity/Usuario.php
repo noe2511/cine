@@ -58,6 +58,13 @@ class Usuario
         return $this->usuario;
     }
 
+    public function setUsuario(string $usuario): self
+    {
+        $this->usuario = $usuario;
+
+        return $this;
+    }
+
     public function getContrasenia(): ?string
     {
         return $this->contrasenia;

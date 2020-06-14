@@ -7,7 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Entrada
  *
- * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_entrada_horario1_idx", columns={"horario_idHorario"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
+ * @ORM\Table(name="entrada", 
+ * indexes={@ORM\Index(name="fk_entrada_horario1_idx", 
+ * columns={"horario_idHorario"}), 
+ * @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", 
+ * columns={"Asiento_idAsiento"})})
  * @ORM\Entity
  */
 class Entrada
@@ -68,5 +72,20 @@ class Entrada
         $this->horarioIdhorario = $horarioIdhorario;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->identrada);
+    }
+
+    public function toArray()
+    {
+
+        return [
+            "identrada" => $this->getIdentrada(),
+            "asientoIdasiento" => $this->getAsientoIdasiento(),
+            "horarioIdhorario" => $this->getHorarioIdhorario()
+        ];
     }
 }

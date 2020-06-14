@@ -1,27 +1,28 @@
 {% extends "base.html.twig" %}
-{% block title %}Reserva{% endblock %}
+{% block title %}Trailer{% endblock %}
 
 {% block body %}
 <link href="{{ asset("css/reserva.css") }}" rel="stylesheet">
 
 <h1>Reserva tus entradas</h1>
-<div class="pelicula-section">
-    <div class="col-md-9 pelicula-grids">
+<div class="reviews-section">
+    <div class="col-md-9 reviews-grids">
 
         {% for pelicula in paginacion %}
 
-            <div class="pelicula">
+            <div class="review">
                 <div class="movie-pic">
                     <img src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt="" />
                 </div>
                
-                <div class="pelicula-info">
+                <div class="review-info">
                     <p class="titulo"><i>{{ pelicula.titulo }}</i></p>
-                    <p class="info"><span class="tit">Actores:</span> {{ pelicula.actores }}</p>
-                    <p class="info"><span class="tit">Director:</span> {{ pelicula.director }}</p>
-                    <p class="info"><span class="tit">Duración:</span> {{ pelicula.duracion }} minutos</p>
-                    <p class="info"><span class="tit">Género:</span> {{pelicula.generoIdgenero}}</p>
-                    <a id="ent" class="button play-icon popup-with-zoom-anim" href="{{ path('horarioPelicula', {'idpelicula': pelicula.idpelicula}) }}"><i class="book1"></i>Reservar entrada</a>
+                    <p class="info"><span class="tit"></span>Actores:</span> {{ pelicula.actores }}</p>
+                    <p class="info"><span class="tit"></span>Director:</span> {{ pelicula.director }}</p>
+                    <p class="info"><span class="tit"></span>Duración:</span> {{ pelicula.duracion }} minutos</p>
+                    <p class="info"><span class="tit"></span></span>Género:</span> {{pelicula.generoIdgenero}}</p>
+                    <a class="button play-icon popup-with-zoom-anim" href="{{ path('horarioPelicula', {'idpelicula': pelicula.idpelicula}) }}"><i class="book1"></i>Sacar entrada</a>
+
                 </div>
             </div>
         {% endfor %}
