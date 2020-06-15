@@ -32,6 +32,7 @@ class ReservaController extends AbstractController
 {
     /**
      * @Route("/", name="reserva", methods={"GET"})
+     *
      */
     public function mostrarPeliculas(PaginatorInterface $paginator, Request $request)
     {
@@ -52,6 +53,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route("/insertarEntrada", name="insertarEntrada", methods={"GET","POST"})
+     * 
      */
     public function insertarEntrada(Request $request)
     {
@@ -100,6 +102,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route("/horario_pelicula/{idpelicula}", name="horarioPelicula", methods={"GET"})
+     * 
      */
     public function mostrarHorarios(HorarioRepository $prepository, Pelicula $pelicula)
     {
@@ -112,6 +115,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route("/sala_reserva/{idsala}", name="salaReserva", methods={"GET"})
+     * 
      */
     public function salaReserva(Sala $sala)
     {
@@ -131,6 +135,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route("/comprobarReservas/{horarioIdhorario}", name="comprobarReservas", methods={"GET"})
+     * 
      */
     public function comprobarReservas(Horario $horarioIdhorario, EntradaRepository $prepository)
     {

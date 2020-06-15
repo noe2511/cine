@@ -13,6 +13,8 @@
                 <th>Id horario</th>
                 <th>Hora</th>
                 <th>Fecha</th>
+                <th>Película</th>
+                <th>Sala</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -22,6 +24,8 @@
                 <td>{{ horario.idhorario }}</td>
                 <td>{{ horario.horainicio ? horario.horainicio|date('H:i:s') : '' }}</td>
                 <td>{{ horario.fecha ? horario.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ horario.peliculaIdpelicula }}</td>
+                <td>{{ horario.salaIdsala }}</td>
                 <td>
                     <a href="{{ path('horario_detalles', {'idhorario': horario.idhorario}) }}" class="btn">Detalles</a>
                     <a href="{{ path('horario_editar', {'idhorario': horario.idhorario}) }}" class="btn">Editar</a>

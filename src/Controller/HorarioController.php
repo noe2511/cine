@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/mantenimiento/horario")
@@ -17,6 +18,7 @@ class HorarioController extends AbstractController
 {
     /**
      * @Route("/", name="horario_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
@@ -37,6 +39,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route("/nuevo", name="horario_nuevo", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function nuevo(Request $request): Response
     {
@@ -60,6 +63,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route("/{idhorario}", name="horario_detalles", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function detalles(Horario $horario): Response
     {
@@ -70,6 +74,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route("/{idhorario}/editar", name="horario_editar", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editar(Request $request, Horario $horario): Response
     {
@@ -90,6 +95,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route("/{idhorario}", name="horario_borrar", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function borrar(Request $request, Horario $horario): Response
     {

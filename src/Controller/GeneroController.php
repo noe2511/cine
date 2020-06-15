@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/mantenimiento/genero")
@@ -17,6 +18,7 @@ class GeneroController extends AbstractController
 {
     /**
      * @Route("/", name="genero_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
@@ -37,6 +39,7 @@ class GeneroController extends AbstractController
 
     /**
      * @Route("/nuevo", name="genero_nuevo", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function nuevo(Request $request): Response
     {
@@ -60,6 +63,7 @@ class GeneroController extends AbstractController
 
     /**
      * @Route("/{idgenero}", name="genero_detalles", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function detalles(Genero $genero): Response
     {
@@ -70,6 +74,7 @@ class GeneroController extends AbstractController
 
     /**
      * @Route("/{idgenero}/editar", name="genero_editar", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editar(Request $request, Genero $genero): Response
     {
@@ -90,6 +95,7 @@ class GeneroController extends AbstractController
 
     /**
      * @Route("/{idgenero}", name="genero_borrar", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function borrar(Request $request, Genero $genero): Response
     {

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PeliculaRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class PrincipalController extends AbstractController
 {
@@ -28,7 +29,7 @@ class PrincipalController extends AbstractController
         $paginacion = $paginator->paginate(
             $peliculas,
             $request->query->getInt('page', 1),
-            6 /*límite por página*/
+            8 /*límite por página*/
         );
 
         return $this->render("principal/index.html.twig", [
@@ -38,6 +39,7 @@ class PrincipalController extends AbstractController
     }
 
     /** @Route("/mantenimiento", name="mantenimiento")
+     * @IsGranted("ROLE_ADMIN")
      *
      * @return void
      */

@@ -19,7 +19,7 @@ class PeliculaType extends AbstractType
             ->add('titulo')
             ->add('descripcion', TextareaType::class)
             ->add('director')
-            ->add('actores')
+            ->add('actores', TextareaType::class)
             ->add('generoIdgenero')
             ->add('fechaEstreno')
             ->add('duracion')

@@ -83,6 +83,7 @@ class Asiento
         return $this;
     }
 
+
     public function __toString()
     {
         return strval($this->idasiento);

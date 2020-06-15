@@ -49,7 +49,7 @@ label{
 	background: rgba(255, 255, 255, 0.47);
 }
 .header {
-	background: url('../images/header-bg.jpg') no-repeat 0px 0px;
+	background: url('../imagenes/avespresa.jpg') no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -354,36 +354,19 @@ i.mantenimiento1 {
 	padding:4px 0 4px 20px;
 	margin:8px 0 0px 20px;
 }
-.search{
+#sign{
 	float:right;
+	margin-top: 5%;
 }
 /*--start-search--*/
-.search {
+#sign {
 	position: relative;
 	padding: 8px 10px;
-	width: 18%;
+	width: 25%;
 	float: right;
 	border: 1px solid #f0f0f0;
 }
-.search input[type="text"] {
-	outline: none;
-	color: #b3b3b3;
-	background: none;
-	font-size: 16px;
-	border: none;
-	width: 84.33%;
-}
-.search input[type="submit"] {
-	background: url('../images/sprit-1.png') no-repeat 0px 0px;
-	border: none;
-	cursor: pointer;
-	position: absolute;
-	outline: none;
-	top: 2px;
-	right: 7px;
-	width: 35px;
-	height: 35px;
-}
+
 #flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
 	display: none;
 }
@@ -2243,4 +2226,12 @@ font-weight: 700;
 	}
 
 
+
+}
+
+
+.text-right a
+{
+	color:orange;
+	margin-top: 15%;
 }

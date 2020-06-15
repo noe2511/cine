@@ -31,7 +31,7 @@ label
     margin-top:100px;
 }
 
-#pelicula_descripcion
+#pelicula_descripcion, #pelicula_actores
 {
     border: solid 2px;
     border-color:#dfb636;

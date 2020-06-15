@@ -5,28 +5,28 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Entrada
+ * Reserva
  *
- * @ORM\Table(name="entrada", indexes={@ORM\Index(name="fk_entrada_horario1_idx", columns={"horario_idHorario"}), @ORM\Index(name="fk_Sala_has_Pelicula_Asiento1_idx", columns={"Asiento_idAsiento"})})
+ * @ORM\Table(name="reserva", indexes={@ORM\Index(name="fk_reserva_horario1_idx", columns={"horario_idHorario"}), @ORM\Index(name="fk_reserva_asiento1_idx", columns={"asiento_idAsiento"})})
  * @ORM\Entity
  */
-class Entrada
+class Reserva
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="idEntrada", type="integer", nullable=false)
+     * @ORM\Column(name="idreserva", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $identrada;
+    private $idreserva;
 
     /**
      * @var \Asiento
      *
      * @ORM\ManyToOne(targetEntity="Asiento")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Asiento_idAsiento", referencedColumnName="idAsiento")
+     *   @ORM\JoinColumn(name="asiento_idAsiento", referencedColumnName="idAsiento")
      * })
      */
     private $asientoIdasiento;
@@ -34,19 +34,21 @@ class Entrada
     /**
      * @var \Horario
      *
-     * @ORM\ManyToOne(targetEntity="Horario")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Horario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="horario_idHorario", referencedColumnName="idHorario")
      * })
      */
     private $horarioIdhorario;
 
-    public function getIdentrada(): ?int
+    public function getIdreserva(): ?int
     {
-        return $this->identrada;
+        return $this->idreserva;
     }
 
-    public function getAsientoIdasiento()
+    public function getAsientoIdasiento(): ?Asiento
     {
         return $this->asientoIdasiento;
     }
@@ -58,7 +60,7 @@ class Entrada
         return $this;
     }
 
-    public function getHorarioIdhorario()
+    public function getHorarioIdhorario(): ?Horario
     {
         return $this->horarioIdhorario;
     }
@@ -70,13 +72,5 @@ class Entrada
         return $this;
     }
 
-    public function toArray()
-    {
 
-        return [
-            "identrada" => $this->getIdentrada(),
-            "asientoIdasiento" => $this->getAsientoIdasiento(),
-            "horarioIdhorario" => $this->getHorarioIdhorario()
-        ];
-    }
 }

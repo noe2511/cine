@@ -28,7 +28,8 @@ h1
     text-align: center;
 }
 
-p.info
+.review
 {
-    height:  35px;
+    display: flex;
 }
+

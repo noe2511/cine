@@ -5,13 +5,23 @@
                 <a href=""><img src="{{asset('imagenes/logo')}}" alt="logo" /></a>
                 <p>Teatro del cine</p>
             </div>
-            <div class="search">
-                <form>
-                    <input type="text" value="Buscar.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
-                    <input type="submit" value="">
-                </form>
+            <div class="sign">
+                {% if not app.user %} {#Si el usuario no esta registrado#}
+          <div class="text-right">
+              <a href="{{ path('app_login') }}"><i class="fa fa-user"></i> Identificate</a>
+          </div><!-- end login -->
+      {% endif %}
+
+      {% if app.user %}
+          <div class="text-right">
+              <a data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"><a href="{{ path('app_logout')}}"> <i class="fa fa-user-times"></i></a> Bienvenido: {{ app.user.username }}</a>
+          </div><!-- end login -->
+
+      {% endif %}
             </div>
             <div class="clearfix"></div>
         </div>
-    
+        <div ="sigIn">
+            
+        </div>
 </header>

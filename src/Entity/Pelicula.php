@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Pelicula
@@ -27,6 +28,8 @@ class Pelicula
      * @var string
      *
      * @ORM\Column(name="Director", type="string", length=150, nullable=false)
+     * @Assert\Length(
+     * min = 2)
      */
     private $director;
 
@@ -41,6 +44,7 @@ class Pelicula
      * @var int
      *
      * @ORM\Column(name="Duracion", type="integer", nullable=false)
+     * @Assert\Positive
      */
     private $duracion;
 
@@ -69,6 +73,8 @@ class Pelicula
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=45, nullable=false)
+     * @Assert\Length(
+     * min = 2)
      */
     private $titulo;
 

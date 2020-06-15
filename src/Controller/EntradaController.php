@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/mantenimiento/entrada")
@@ -16,6 +17,7 @@ class EntradaController extends AbstractController
 {
     /**
      * @Route("/", name="entrada_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(): Response
     {
@@ -30,6 +32,7 @@ class EntradaController extends AbstractController
 
     /**
      * @Route("/nueva", name="entrada_nueva", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function nueva(Request $request): Response
     {
@@ -53,6 +56,7 @@ class EntradaController extends AbstractController
 
     /**
      * @Route("/{identrada}", name="entrada_detalles", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Entrada $entrada): Response
     {
@@ -63,6 +67,7 @@ class EntradaController extends AbstractController
 
     /**
      * @Route("/{identrada}/editar", name="entrada_editar", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editar(Request $request, Entrada $entrada): Response
     {
@@ -83,6 +88,7 @@ class EntradaController extends AbstractController
 
     /**
      * @Route("/{identrada}", name="entrada_borrar", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function borrar(Request $request, Entrada $entrada): Response
     {

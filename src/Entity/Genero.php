@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Genero
@@ -25,6 +26,12 @@ class Genero
      * @var string
      *
      * @ORM\Column(name="Nombre", type="string", length=15, nullable=false)
+     * @Assert\Length(
+     * min=3,
+     * minMessage = "Debe contener al menos 3 carácteres",
+     * max=15,
+     * maxMessage = "Debe contener 15 caracteres como máximo"
+     * )
      */
     private $nombre;
 

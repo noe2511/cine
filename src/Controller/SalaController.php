@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/mantenimiento/sala")
@@ -18,6 +19,7 @@ class SalaController extends AbstractController
 {
     /**
      * @Route("/", name="sala_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param PaginatorInterface $paginator
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
@@ -39,6 +41,7 @@ class SalaController extends AbstractController
 
     /**
      * @Route("/nueva", name="sala_nueva", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function nueva(Request $request): Response
     {
@@ -84,6 +87,7 @@ class SalaController extends AbstractController
 
     /**
      * @Route("/{idsala}", name="sala_detalles", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function detalles(Sala $sala): Response
     {
@@ -94,6 +98,7 @@ class SalaController extends AbstractController
 
     /**
      * @Route("/{idsala}/editar", name="sala_editar", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editar(Request $request, Sala $sala): Response
     {
@@ -114,6 +119,7 @@ class SalaController extends AbstractController
 
     /**
      * @Route("/{idsala}", name="sala_borrar", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function borrar(Request $request, Sala $sala): Response
     {

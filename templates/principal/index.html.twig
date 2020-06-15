@@ -2,24 +2,28 @@
 {% block title %}Hello PrincipalController!{% endblock %}
 
 {% block body %}
+
+
 		
         <div class="header">
             <div class="header-info">
-				<h1>BIG HERO 6</h1>
-				<p class="age">Título de la película</p>
-				<p class="review reviewgo">Género	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; Género de la película</p>
-				<p class="review">Fecha de estreno &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 7 Noviembre 2014</p>
-				<p class="special">Descripción de la película.</p>
-				<a class="video" href="#"><i class="video1"></i>Ver trailer</a>
-				<a class="book" href="#"><i class="book1"></i>Saca tus entradas</a>
+				<h1>AVES DE PRESA</h1>
+				<p class="age">Aves de presa</p>
+				<p class="review reviewgo">Acción	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; Género de la película</p>
+				<p class="special">Después de separarse de Joker, Harley Quinn y otras tres heroínas (Canario Negro, Cazadora y Renée Montoya) unen sus fuerzas para salvar a una niña (Cassandra Cain) del malvado rey del crimen Máscara Negra.</p>
+				<a class="video" href="#vertrailer"><i class="video1"></i>Ver tráiler</a>
+				<a class="book" href="{{ path("reserva")}}"><i class="book1"></i>Saca tus entradas</a>
 			</div>
         </div>
         <div class="review-slider">
             <ul id="flexiselDemo1">
-        		{% for pelicula in paginacion %}<!--El corchete y el porcentaje es la manera de poner un comando de twig-->
-            		<li><img src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt=""/></li>
-        		{% endfor %}
-        	</ul>
+				{% for pelicula in paginacion %}
+				<li><img  src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt="" style="height: 250px;"/></li>
+				
+				{% endfor %}
+			</ul>
+			
+			<script type="text/javascript" src="{{ asset('js/jquery.flexisel.js') }}"></script>
         	<script type="text/javascript">
 				$(window).load(function() {
 				
@@ -47,42 +51,30 @@
 					});
 				});
 			</script>
-			<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
+				
         </div>
-        <div class="video">
-			<iframe  src="https://www.youtube.com/embed/2LqzF5WauAw" frameborder="0" allowfullscreen></iframe>
+        <div class="video" id="vertrailer">
+			<iframe  src="https://www.youtube.com/embed/W_QkWlijBlM" frameborder="0" allowfullscreen></iframe>
 		</div>
 		<div class="news">
-			<div class="col-md-6 news-left-grid">
+			<div class="col-md-6 news-left-grid" style="width: 100%;">
 				<h3>No tardes,</h3>
 				<h2>¡saca tus entradas ahora!</h2>
 				<h4>Facil, simple y rápido.</h4>
-				<a href="#"><i class="book"></i>Comprar entradas</a>
+				<a href="{{ path("reserva")}}" style="float:right;"><i class="book"></i>Comprar entradas</a>
 				<!--<p>Get Discount up to <strong>10%</strong> if you are a member!</p>-->
 			</div>
-			<div class="col-md-6 news-right-grid">
-				<h3>Nuevas</h3>
-				<div class="news-grid">
-					<h5>Título película</h5>
-					<label>Fecha de estreno</label>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-				</div>
-				<div class="news-grid">
-					<h5>Título película</h5>
-					<label>Fecha de estreno</label>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-				</div>
-				<a class="more" href="#">MÁS</a>
-			</div>
+			
 			<div class="clearfix"></div>
 		</div>
         <div class="more-reviews">
             <ul id="flexiselDemo2">
 				{% for pelicula in paginacion %}<!--El corchete y el porcentaje es la manera de poner un comando de twig-->
-					<li><img src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt=""/></li>
+					<li><img src="{{asset('imagenes/' ~ pelicula.imagen)}}" alt="" style="height: 350px"/></li>
 				{% endfor %}
             </ul>
 			<script type="text/javascript">
+				
 			$(window).load(function() {
 				
 			$("#flexiselDemo2").flexisel({

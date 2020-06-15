@@ -72,9 +72,9 @@ $( document ).ready(function() {
 
                     }).fail(function(jqXHR, textStatus, errorThrown) {
                         console.log(jqXHR.responseText);
-                        alert("fallo");
+                        
                     }).done(function(response) {
-                        alert("Entrada insertada");
+                       
                     })
                 }
                 insertarEntrada();

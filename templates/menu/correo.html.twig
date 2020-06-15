@@ -1,2 +1,8 @@
-{{ asiento.idasiento }}
-{{ horario.idhorario }}
+
+<p>Tu reserva ha ido bien.</p>
+<p>Le informo que el asiento que ha reservado es el siguiente: {{ asiento.idasiento }}
+</p>
+<p>El día al que deberá asistir es el siguiente: {{ horario.fecha ? horario.fecha|date('Y-m-d') : '' }}
+</p>
+<p>La hora a la que deberá asistir es la siguiente:{{ horario.horainicio ? horario.horainicio|date('H:i:s') : '' }}
+</p>
