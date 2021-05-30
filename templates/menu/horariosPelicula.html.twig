@@ -11,7 +11,7 @@
         {% for horario in horarios %}
 
         <div id="horario">
-            <a href="{{ path('salaReserva', {'idsala': horario.salaIdsala}) }}" class="btn">{{ horario.fecha|date('d-m-Y') }} {{ horario.Horainicio|date('H:i:s') }}</a>
+            <a href="{{ path('salaReserva', {'idsala': horario.salaIdsala, 'idhorario': horario.idhorario}) }}" class="btn">{{ horario.fecha|date('d-m-Y') }} {{ horario.Horainicio|date('H:i:s') }}</a>
         </div>
 
         {% else %}

@@ -28,12 +28,7 @@ class Asiento
      */
     private $tipo;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Estado", type="string", length=7, nullable=false)
-     */
-    private $estado;
+
 
     /**
      * @var int

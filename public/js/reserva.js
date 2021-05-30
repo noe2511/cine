@@ -17,12 +17,12 @@ $( document ).ready(function() {
             {
                 if($(this).hasClass("minusvalido") && (!($(this).hasClass("ocupado"))))
                 {
-                    $(this).attr("src","../../../imagenes/minusvalido.ico");
+                    $(this).attr("src","../../../../imagenes/minusvalido.ico");
                     $(this).removeClass("seleccionado");
                 }
                 if($(this).hasClass("normal") && (!($(this).hasClass("ocupado"))))
                 {
-                    $(this).attr("src","../../../imagenes/libre.ico");
+                    $(this).attr("src","../../../../imagenes/libre.ico");
                     $(this).removeClass("seleccionado");
                 }
             }
@@ -30,13 +30,13 @@ $( document ).ready(function() {
             {
                 if($(this).hasClass("minusvalido") && (!($(this).hasClass("ocupado"))))
                 {
-                    $(this).attr("src","../../../imagenes/minusvalidoPinchado.ico");
+                    $(this).attr("src","../../../../imagenes/minusvalidoPinchado.ico");
                 
                     $(this).addClass("seleccionado");
                 }
                 if($(this).hasClass("normal") && (!($(this).hasClass("ocupado"))))
                 {
-                    $(this).attr("src","../../../imagenes/pinchado.ico");
+                    $(this).attr("src","../../../../imagenes/pinchado.ico");
 
                     $(this).addClass("seleccionado");
                 }
@@ -48,7 +48,7 @@ $( document ).ready(function() {
     var seleccionados=[];
   
 
-    enlace2="../../reserva/insertarEntrada";
+    enlace2="../../insertarEntrada";
 
     $('#reserva').on({
         'click': function(){
@@ -78,6 +78,7 @@ $( document ).ready(function() {
                     })
                 }
                 insertarEntrada();
+                location.href ="http://localhost/2019-2020/cine/public/index.php";
                 });
                 
             }
@@ -94,7 +95,7 @@ $( document ).ready(function() {
 //$("#idHorario").val();
 
 
-enlace="../../reserva/comprobarReservas/"+idH;
+enlace="../../comprobarReservas/"+idH;
 
 
 function comprobarReservas()
@@ -109,17 +110,18 @@ function comprobarReservas()
             
     }).fail(function(jqXHR, textStatus, errorThrown) {
         console.log(errorThrown);
-        alert("fallo");
+        console.log(enlace);
     }).done(function(response) {
+        console.log(enlace);
         for (var key in response) {
             $("#"+response[key]['idAsiento']).addClass("ocupado");
             if($("#"+response[key]['idAsiento']).hasClass("minusvalido"))
             {
-                $("#"+response[key]['idAsiento']).attr("src","../../../imagenes/minusvalidoOcupado.ico");
+                $("#"+response[key]['idAsiento']).attr("src","../../../../imagenes/minusvalidoOcupado.ico");
             }
             else
             {
-                $("#"+response[key]['idAsiento']).attr("src","../../../imagenes/ocupado.ico");
+                $("#"+response[key]['idAsiento']).attr("src","../../../../imagenes/ocupado.ico");
             }
         }
     })

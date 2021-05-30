@@ -114,7 +114,7 @@ class ReservaController extends AbstractController
     }
 
     /**
-     * @Route("/sala_reserva/{idsala}", name="salaReserva", methods={"GET"})
+     * @Route("/sala_reserva/{idsala}/{idhorario}", name="salaReserva", methods={"GET"})
      * 
      */
     public function salaReserva(Sala $sala)
